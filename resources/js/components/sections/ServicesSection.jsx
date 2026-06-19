@@ -101,7 +101,7 @@ export default function ServicesSection({ services, locale }) {
                             const sNum = String(idx + 1).padStart(2, '0');
                             const sTitle = locale === 'id' && service.name_id ? service.name_id : service.name_en;
                             const sBadge = 'SERVICES'; // Or read from db if you want
-                            const sDesc = locale === 'id' && service.description_id ? service.description_id : service.description_en;
+                            const sDesc = locale === 'id' ? (service.description_id || service.subtitle_id) : (service.description_en || service.subtitle_en);
                             
                             // Map icon
                             let sIcon = <path d="M12 2L2 7l10 5 10-5-10-5z" />;

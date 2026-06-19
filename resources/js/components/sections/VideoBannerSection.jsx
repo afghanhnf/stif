@@ -11,7 +11,7 @@ export default function VideoBannerSection() {
                     height: 'clamp(300px, 50vw, 460px)',
                     borderRadius: '32px',
                     overflow: 'hidden',
-                    backgroundImage: 'url(/images/video-banner-bg.jpg)',
+                    backgroundImage: `url(${(typeof window !== 'undefined' && window.STATIC_BASE_PATH ? window.STATIC_BASE_PATH : '')}/images/video-banner-bg.jpg)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.03)'

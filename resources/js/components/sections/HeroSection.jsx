@@ -31,7 +31,9 @@ export default function HeroSection({ locale, data }) {
     const button2Url = currentHero?.button_2_url || '/business-case';
     const verseArabic = currentHero?.verse_arabic || 'اتَّقُوا اللَّهَ وَأَجْمِلُوا فِي الطَّلَبِ';
     const verseTranslation = currentHero?.[`verse_translation_${locale}`] || '"Be mindful of Allah, and be moderate in seeking a living."';
-    const image = currentHero?.image ? `/storage/${currentHero.image}` : '/images/hero-building.jpg';
+    const basePath = typeof window !== 'undefined' && window.STATIC_BASE_PATH ? window.STATIC_BASE_PATH : '';
+    const imagePath = currentHero?.image ? `/storage/${currentHero.image}` : '/images/hero-building.jpg';
+    const image = `${basePath}${imagePath}`;
 
     return (
         <section style={{ backgroundColor: '#F7F6F5', padding: '40px 0', overflow: 'hidden' }}>

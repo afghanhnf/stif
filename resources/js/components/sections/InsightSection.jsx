@@ -35,8 +35,11 @@ export default function InsightSection({ articles, locale }) {
         }
     ];
 
+    const basePath = typeof window !== 'undefined' && window.STATIC_BASE_PATH ? window.STATIC_BASE_PATH : '';
+
     const displayItems = articles && articles.length >= 3
         ? articles.slice(0, 3).map((item, idx) => {
+            const imagePath = item.featured_image ? (item.featured_image.startsWith('/') ? item.featured_image : `/storage/${item.featured_image}`) : dummyArticles[idx].image;
             return {
                 id: item.id,
                 slug: item.slug,
@@ -46,10 +49,10 @@ export default function InsightSection({ articles, locale }) {
                     year: 'numeric', month: 'long', day: 'numeric'
                 }),
                 read_time: item.reading_time ? `${item.reading_time} min read` : dummyArticles[idx].read_time,
-                image: item.featured_image ? (item.featured_image.startsWith('/') ? item.featured_image : `/storage/${item.featured_image}`) : dummyArticles[idx].image
+                image: `${basePath}${imagePath}`
             };
         })
-        : dummyArticles;
+        : dummyArticles.map(item => ({...item, image: `${basePath}${item.image}`}));
 
     return (
         <section style={{ backgroundColor: '#F7F6F5', padding: '60px 0' }}>

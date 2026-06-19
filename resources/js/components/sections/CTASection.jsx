@@ -13,7 +13,7 @@ export default function CTASection({ locale }) {
                     borderRadius: '32px',
                     padding: 'clamp(24px, 6vw, 56px)',
                     color: '#FFFFFF',
-                    backgroundImage: 'url(/images/cta-bg-pattern.svg)',
+                    backgroundImage: `url(${(typeof window !== 'undefined' && window.STATIC_BASE_PATH ? window.STATIC_BASE_PATH : '')}/images/cta-bg-pattern.svg)`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     boxShadow: '0 10px 30px rgba(0,0,0,0.03)',

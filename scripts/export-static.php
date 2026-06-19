@@ -114,8 +114,9 @@ function injectStaticNavigationScript(string $html, string $staticBasePath): str
     $encodedBasePath = json_encode($staticBasePath, JSON_THROW_ON_ERROR);
     $script = <<<'HTML'
 <script>
+window.STATIC_BASE_PATH = __STATIC_BASE_PATH__;
 document.addEventListener('click', function (event) {
-    var staticBasePath = __STATIC_BASE_PATH__;
+    var staticBasePath = window.STATIC_BASE_PATH;
     var stripBasePath = function (path) {
         if (staticBasePath && path.indexOf(staticBasePath + '/') === 0) {
             return path.substring(staticBasePath.length);
