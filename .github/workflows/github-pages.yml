@@ -83,8 +83,6 @@ jobs:
           sleep 5
           php scripts/export-static.php
 
-
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
