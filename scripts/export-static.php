@@ -192,7 +192,14 @@ function rewriteRootReferences(string $content, string $staticBasePath): string
         '`/storage/' => '`' . $staticBasePath . '/storage/',
     ];
 
-    return strtr($content, $replacements);
+    $content = strtr($content, $replacements);
+
+    // Fix double-prefixing that can occur if ASSET_URL is already injecting the base path
+    $doublePrefix = $staticBasePath . $staticBasePath . '/';
+    $singlePrefix = $staticBasePath . '/';
+    $content = str_replace($doublePrefix, $singlePrefix, $content);
+
+    return $content;
 }
 
 function rewriteStaticAssetReferences(string $outputDir, string $staticBasePath): void

@@ -43,6 +43,7 @@ jobs:
           REPO_NAME="${GITHUB_REPOSITORY#*/}"
           if [ "$REPO_NAME" != "${GITHUB_REPOSITORY_OWNER}.github.io" ]; then
             echo "STATIC_BASE_PATH=/$REPO_NAME" >> "$GITHUB_ENV"
+            echo "ASSET_URL=/$REPO_NAME" >> "$GITHUB_ENV"
           fi
 
       - name: Setup PHP
