@@ -35,8 +35,6 @@ export default function BusinessCaseSection({ portfolios, locale }) {
         }
     ];
 
-    const basePath = typeof window !== 'undefined' && window.STATIC_BASE_PATH ? window.STATIC_BASE_PATH : '';
-
     // If portfolios from database has data, map them or fall back to dummy
     const displayItems = portfolios && portfolios.length >= 3
         ? portfolios.slice(0, 3).map((item, idx) => {
@@ -48,10 +46,10 @@ export default function BusinessCaseSection({ portfolios, locale }) {
                 title: locale === 'id' && item.title_id ? item.title_id : item.title_en,
                 akad: item.akad_type || dummyPortfolios[idx].akad,
                 size: item.ticket_size || dummyPortfolios[idx].size,
-                image: `${basePath}${imagePath}`
+                image: imagePath
             };
         })
-        : dummyPortfolios.map(item => ({...item, image: `${basePath}${item.image}`}));
+        : dummyPortfolios;
 
     return (
         <section style={{ backgroundColor: '#F7F6F5', padding: '60px 0' }}>

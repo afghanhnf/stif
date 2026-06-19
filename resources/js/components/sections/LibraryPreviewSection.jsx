@@ -75,7 +75,7 @@ export default function LibraryPreviewSection({ akads, locale }) {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'flex-end',
-                        backgroundImage: `url(${(typeof window !== 'undefined' && window.STATIC_BASE_PATH ? window.STATIC_BASE_PATH : '')}/images/library-bg.png)`,
+                        backgroundImage: `url(/images/library-bg.png)`,
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         position: 'relative',

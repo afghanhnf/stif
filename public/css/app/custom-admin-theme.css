@@ -1,0 +1,362 @@
+/* ============================================================
+   STIF Capital — Filament Admin Custom Stylesheet
+   Split-Screen Login Layout
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300..700;1,300..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+/* Removed body reset to prevent leaking into main dashboard */
+/* ============================================================
+   SPLIT LOGIN LAYOUT
+   ============================================================ */
+.stif-login-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    width: 100%;
+}
+
+/* --- LEFT PANEL (Image + Overlay) --- */
+.stif-login-left {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+}
+
+.stif-login-left__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.stif-login-left__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background: linear-gradient(
+        160deg,
+        rgba(107, 109, 15, 0.88) 0%,
+        rgba(79, 83, 49, 0.92) 45%,
+        rgba(0, 16, 8, 0.94) 100%
+    );
+}
+
+/* Subtle decorative grid lines on the left panel */
+.stif-login-left::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    opacity: 0.06;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.3) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+}
+
+.stif-login-left__content {
+    position: relative;
+    z-index: 3;
+    padding: 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    gap: 20px;
+}
+
+.stif-login-left__logo {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 12px;
+    opacity: 0.9;
+}
+
+.stif-login-left__heading {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    line-height: 1.1;
+    color: #FFFFFF !important;
+    letter-spacing: -0.02em;
+}
+
+.stif-login-left__description {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 420px;
+}
+
+.stif-login-left__footer {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    margin-top: 40px;
+}
+
+/* --- RIGHT PANEL (Login Form) --- */
+.stif-login-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #FAFAF8 0%, #F7F6F5 100%);
+    padding: 40px;
+}
+
+.stif-login-right__inner {
+    width: 100%;
+    max-width: 400px;
+}
+
+.stif-login-right__logo {
+    margin-bottom: 40px;
+}
+
+.stif-login-right__logo img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+}
+
+.stif-login-right__header {
+    margin-bottom: 36px;
+}
+
+.stif-login-right__heading {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #131810;
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+}
+
+.stif-login-right__subheading {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #868680;
+    line-height: 1.5;
+}
+
+/* --- FORM STYLING --- */
+.stif-login-right__form {
+    width: 100%;
+}
+
+/* Override Filament simple-layout defaults to prevent conflict */
+.fi-simple-layout {
+    display: contents !important;
+    background: none !important;
+    min-height: auto !important;
+}
+
+.fi-simple-main-ctn {
+    display: contents !important;
+    min-height: auto !important;
+    padding: 0 !important;
+}
+
+.fi-simple-main {
+    display: contents !important;
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+}
+
+.fi-simple-page {
+    display: contents !important;
+    padding: 0 !important;
+}
+
+.fi-simple-page-content {
+    display: contents !important;
+}
+
+/* Hide the default Filament header (we provide our own) */
+.fi-simple-header {
+    display: none !important;
+}
+
+/* Form labels */
+.stif-login-split .fi-fo-field-wrp-label,
+.stif-login-split label {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 600 !important;
+    color: #4F5331 !important;
+    font-size: 0.85rem !important;
+    letter-spacing: 0.02em !important;
+}
+
+/* Input fields */
+.stif-login-split .fi-input-wrp {
+    background-color: #FFFFFF !important;
+    border: 1.5px solid rgba(0, 0, 0, 0.08) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02) !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    padding: 0.15rem 0.5rem !important;
+}
+
+.stif-login-split .fi-input-wrp:focus-within {
+    border-color: #6B6D0F !important;
+    box-shadow: 0 0 0 3px rgba(107, 109, 15, 0.12) !important;
+}
+
+.stif-login-split .fi-input {
+    font-family: 'Open Sans', sans-serif !important;
+    color: #131810 !important;
+    font-size: 0.95rem !important;
+}
+
+/* Submit button */
+.stif-login-split .fi-btn {
+    background-color: #6B6D0F !important;
+    border: 1px solid #6B6D0F !important;
+    border-radius: 12px !important;
+    color: #FFFFFF !important;
+    font-family: 'Josefin Sans', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.04em !important;
+    padding: 0.75rem 1.5rem !important;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    box-shadow: 0 4px 14px rgba(107, 109, 15, 0.2) !important;
+    cursor: pointer !important;
+}
+
+.stif-login-split .fi-btn *,
+.stif-login-split .fi-btn span,
+.stif-login-split .fi-btn .fi-btn-label {
+    color: #FFFFFF !important;
+}
+
+.stif-login-split .fi-btn:hover {
+    background-color: #4F5331 !important;
+    border-color: #4F5331 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 6px 20px rgba(107, 109, 15, 0.35) !important;
+}
+
+.stif-login-split .fi-btn:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 2px 6px rgba(107, 109, 15, 0.2) !important;
+}
+
+/* Links */
+.stif-login-split .fi-link,
+.stif-login-split a.fi-link {
+    font-family: 'Open Sans', sans-serif !important;
+    font-weight: 600 !important;
+    color: #6B6D0F !important;
+    transition: color 0.2s ease !important;
+}
+
+.stif-login-split .fi-link:hover,
+.stif-login-split a.fi-link:hover {
+    color: #4F5331 !important;
+}
+
+/* Error state */
+.stif-login-split .fi-input-wrp.fi-fo-error {
+    border-color: #AA0202 !important;
+}
+.stif-login-split .fi-input-wrp.fi-fo-error:focus-within {
+    box-shadow: 0 0 0 3px rgba(170, 2, 2, 0.12) !important;
+}
+
+/* Checkbox (remember me) */
+.stif-login-split .fi-checkbox-input:checked {
+    background-color: #6B6D0F !important;
+    border-color: #6B6D0F !important;
+}
+
+/* ============================================================
+   RESPONSIVE: Stack on smaller screens
+   ============================================================ */
+@media (max-width: 1024px) {
+    .stif-login-split {
+        grid-template-columns: 1fr;
+    }
+
+    .stif-login-left {
+        min-height: 280px;
+    }
+
+    .stif-login-left__content {
+        padding: 32px;
+    }
+
+    .stif-login-left__heading {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 640px) {
+    .stif-login-left {
+        min-height: 220px;
+    }
+
+    .stif-login-left__content {
+        padding: 24px;
+    }
+
+    .stif-login-left__heading {
+        font-size: 28px;
+    }
+
+    .stif-login-left__description {
+        font-size: 13px;
+    }
+
+    .stif-login-right {
+        padding: 24px;
+    }
+
+    .stif-login-right__header {
+        margin-bottom: 24px;
+    }
+}
+
+/* ============================================================
+   GLOBAL DASHBOARD STYLING
+   ============================================================ */
+/* Force Josefin Sans only on headings across the Filament dashboard */
+h1, h2, h3, h4, h5, h6,
+.fi-header-heading,
+.fi-ta-header-heading,
+.fi-section-header-heading,
+.fi-modal-heading,
+.fi-logo {
+    font-family: 'Josefin Sans', sans-serif !important;
+    color: #131810 !important; /* STIF dark tone */
+}
+
+/* Force base text color for any unstyled or conflicting text in the admin */
+.fi-body {
+    color: #333333;
+}
+
+/* ============================================================
+   NPROGRESS CUSTOMIZATION (LOADING BAR)
+   ============================================================ */
+#nprogress .bar {
+    height: 4px !important;
+    background: #7B8F47 !important;
+    z-index: 9999 !important;
+}
+
+#nprogress .peg {
+    box-shadow: 0 0 10px #7B8F47, 0 0 5px #7B8F47 !important;
+}
