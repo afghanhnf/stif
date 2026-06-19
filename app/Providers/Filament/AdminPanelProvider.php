@@ -39,7 +39,7 @@ class AdminPanelProvider extends PanelProvider
             ->brandLogoHeight('45px')
             ->favicon(asset('favicon.png'))
             ->assets([
-                Css::make('custom-admin-theme', asset('css/custom-admin.css')),
+                Css::make('custom-admin-theme', public_path('css/custom-admin.css')),
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
