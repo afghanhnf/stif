@@ -61,16 +61,20 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
     const description = locale === 'id' && portfolio.description_id ? portfolio.description_id : portfolio.description_en;
     const content = locale === 'id' && portfolio.content_id ? portfolio.content_id : portfolio.content_en;
 
-    const image = `/images/${portfolio.thumbnail}`;
+    const isUpload = portfolio.thumbnail?.includes('/');
+    const image = isUpload ? `/storage/${portfolio.thumbnail}` : `/images/${portfolio.thumbnail}`;
 
     // Filter and slice related portfolios (excluding the current one)
     const relatedItems = (related || [])
         .filter(item => item.slug !== portfolio.slug)
         .slice(0, 3)
-        .map(item => ({
-            ...item,
-            image: `/images/${item.thumbnail}`
-        }));
+        .map(item => {
+            const isRelatedUpload = item.thumbnail?.includes('/');
+            return {
+                ...item,
+                image: isRelatedUpload ? `/storage/${item.thumbnail}` : `/images/${item.thumbnail}`
+            };
+        });
 
     const breadcrumbItems = [
         { label: locale === 'id' ? 'Beranda' : 'Home', url: prefix || '/' },
@@ -126,11 +130,9 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                                     <p className="portfolio-main-text">{description}</p>
                                 </div>
 
-                                <div className="portfolio-main-divider" />
-
                                 <div>
                                     <span className="label-gold">{text.mechanism}</span>
-                                    <div className="portfolio-main-text" dangerouslySetInnerHTML={{ __html: content }} />
+                                    <div className="portfolio-main-text rich-content" dangerouslySetInnerHTML={{ __html: content }} />
                                 </div>
                             </div>
 
@@ -140,10 +142,9 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                                 {/* Card 1: Ticket size */}
                                 <div className="fact-card">
                                     <div className="fact-card__header">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#718844" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <line x1="18" y1="20" x2="18" y2="10" />
-                                            <line x1="12" y1="20" x2="12" y2="4" />
-                                            <line x1="6" y1="20" x2="6" y2="14" />
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#718844" strokeWidth="2.0" strokeLinecap="round" strokeLinejoin="round">
+                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                                            <polyline points="17 6 23 6 23 12" />
                                         </svg>
                                         <span>{text.ticketSize}</span>
                                     </div>
@@ -178,9 +179,11 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                                 {/* Card 4: Expected return */}
                                 <div className="fact-card">
                                     <div className="fact-card__header">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#718844" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                                            <polyline points="17 6 23 6 23 12" />
+                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#718844" strokeWidth="2.0" strokeLinecap="round" strokeLinejoin="round">
+                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                                            <circle cx="9" cy="7" r="4" />
+                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
                                         </svg>
                                         <span>{text.expectedReturn}</span>
                                     </div>
@@ -400,6 +403,26 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                     width: 100%;
                 }
                 
+                .rich-content h1, 
+                .rich-content h2, 
+                .rich-content h3, 
+                .rich-content h4, 
+                .rich-content h5, 
+                .rich-content h6 {
+                    color: #718844;
+                    font-size: 11px;
+                    font-weight: 950;
+                    letter-spacing: 0.12em;
+                    text-transform: uppercase;
+                    margin-top: 36px;
+                    margin-bottom: 16px;
+                    font-family: inherit;
+                }
+                
+                .rich-content p {
+                    margin-bottom: 16px;
+                }
+                
                 .portfolio-stats-sidebar {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
@@ -436,6 +459,7 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                     font-weight: 800;
                     color: #131810;
                     line-height: 1.2;
+                    word-break: break-word;
                 }
                 
                 .related-cases-section {

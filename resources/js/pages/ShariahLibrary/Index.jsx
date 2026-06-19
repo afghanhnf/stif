@@ -184,9 +184,9 @@ function normalizeAkads(akads, locale) {
             ...item,
             id: match?.id || item.slug,
             slug: match?.slug || item.slug,
-            name: match ? (isId && match.name_id ? match.name_id : match.name_en) : (isId ? item.titleId : item.name),
-            subtitle: isId ? item.subtitleId : item.subtitle,
-            desc: isId ? item.descId : item.desc,
+            name: match ? (isId && match.name_id ? match.name_id : (match.name_en || item.name)) : (isId ? item.titleId : item.name),
+            subtitle: match ? (isId && match.subtitle_id ? match.subtitle_id : (match.subtitle_en || (isId ? item.subtitleId : item.subtitle))) : (isId ? item.subtitleId : item.subtitle),
+            desc: match ? (isId && match.definition_id ? match.definition_id : (match.definition_en || (isId ? item.descId : item.desc))) : (isId ? item.descId : item.desc),
             arabic: match?.arabic_name && !match.arabic_name.includes('Ù') ? match.arabic_name : item.arabic,
         };
     });

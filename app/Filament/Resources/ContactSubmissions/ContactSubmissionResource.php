@@ -25,6 +25,17 @@ class ContactSubmissionResource extends Resource
     protected static \UnitEnum|string|null $navigationGroup = 'Inquiries';
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-briefcase';
 
+    public static function getNavigationBadge(): ?string
+    {
+        $count = static::getModel()::where('status', 'new')->count();
+        return $count > 0 ? (string) $count : null;
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return 'success';
+    }
+
     public static function form(Schema $schema): Schema
     {
         return ContactSubmissionForm::configure($schema);

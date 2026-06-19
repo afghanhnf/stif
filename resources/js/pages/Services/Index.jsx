@@ -164,21 +164,12 @@ function serviceSlug(service) {
     return service.slug === 'sharia' ? 'shariah' : service.slug;
 }
 
-function normalizeServices(services, localeCopy) {
+function normalizeServices(services, localeCopy, locale) {
     const source = services && services.length ? services : serviceOrder.map((slug, index) => ({ id: index + 1, slug }));
-    const ordered = [];
-
-    serviceOrder.forEach((slug) => {
-        const match = source.find((service) => serviceSlug(service) === slug);
-        if (match) {
-            ordered.push(match);
-        }
-    });
-
-    source.forEach((service) => {
-        if (!ordered.includes(service)) {
-            ordered.push(service);
-        }
+    const ordered = [...source].sort((a, b) => {
+        const orderA = a.order !== undefined && a.order !== null ? Number(a.order) : 999;
+        const orderB = b.order !== undefined && b.order !== null ? Number(b.order) : 999;
+        return orderA - orderB;
     });
 
     return ordered.slice(0, 4).map((service, index) => {
@@ -195,6 +186,9 @@ function normalizeServices(services, localeCopy) {
             id: service.id || slug,
             slug: service.slug || slug,
             iconSlug: slug,
+            num: String(index + 1).padStart(2, '0'),
+            title: locale === 'id' && service.name_id ? service.name_id : (service.name_en || fallback.title),
+            desc: locale === 'id' && service.description_id ? service.description_id : (service.description_en || fallback.desc)
         };
     });
 }
@@ -203,7 +197,7 @@ export default function ServicesIndex({ locale, services, settings }) {
     const { t } = useTranslation();
     const prefix = locale === 'id' ? '/id' : '';
     const text = copy[locale] || copy.en;
-    const serviceCards = normalizeServices(services, text);
+    const serviceCards = normalizeServices(services, text, locale);
 
     const breadcrumbItems = [
         { label: locale === 'id' ? 'Beranda' : 'Home', url: prefix || '/' },

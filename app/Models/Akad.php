@@ -14,6 +14,7 @@ class Akad extends Model
     protected $fillable = [
         'number', 'slug', 'arabic_name', 'latin_name',
         'name_en', 'name_id',
+        'subtitle_en', 'subtitle_id',
         'definition_en', 'definition_id',
         'jurisprudence_en', 'jurisprudence_id',
         'scheme_en', 'scheme_id',

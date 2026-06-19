@@ -2843,3 +2843,34 @@ button {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* ============================================================
+   RICH TEXT GLOBALS
+   ============================================================ */
+.prose ul, .rich-content ul,
+.insight-show__body ul, .insight-show__body ol,
+.prose ol, .rich-content ol {
+    margin: 1rem 0 1rem 1.5rem;
+}
+
+.prose ul, .rich-content ul, .insight-show__body ul {
+    list-style-type: disc;
+}
+
+.prose ol, .rich-content ol, .insight-show__body ol {
+    list-style-type: decimal;
+}
+
+.prose li, .rich-content li, .insight-show__body li {
+    margin-bottom: 0.5rem;
+}
+
+.prose a, .rich-content a {
+    color: #718844;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.prose a:hover, .rich-content a:hover {
+    color: #4b5d2a;
+}

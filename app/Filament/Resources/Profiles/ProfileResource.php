@@ -21,7 +21,7 @@ class ProfileResource extends Resource
     protected static \UnitEnum|string|null $navigationGroup = 'Web Content';
     protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-information-circle';
 
-    protected static ?string $recordTitleAttribute = 'title';
+    // protected static ?string $recordTitleAttribute = 'title';
 
     public static function form(Schema $schema): Schema
     {

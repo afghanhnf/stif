@@ -2,57 +2,26 @@ import { Link } from '@inertiajs/react';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
-const serviceData = {
-    'shariah': {
-        num: '01',
-        title: 'Sharia Foundation',
-        badge: 'COMPLIANCE',
-        desc: 'Every investment is structured under rigorous Sharia principles that ensure alignment with Islamic values in any capital deployment.',
-        icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    },
-    'sharia': {
-        num: '01',
-        title: 'Sharia Foundation',
-        badge: 'COMPLIANCE',
-        desc: 'Every investment is structured under rigorous Sharia principles that ensure alignment with Islamic values in any capital deployment.',
-        icon: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-    },
-    'trust-fund': {
-        num: '02',
-        title: 'Trust Fund',
-        badge: 'FIDUCIARY',
-        desc: 'Capital managed with discipline, transparency, and long-term responsibility that preserves trust and pursues sustainable value creation.',
-        icon: (
-            <>
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-            </>
-        )
-    },
-    'investment': {
-        num: '03',
-        title: 'Investment',
-        badge: 'EQUITY',
-        desc: 'Direct capital allocation focused on proven, productive projects to build sustainable and compounding growth.',
-        icon: (
-            <>
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                <polyline points="17 6 23 6 23 12" />
-            </>
-        )
-    },
-    'financing': {
-        num: '04',
-        title: 'Financing',
-        badge: 'ASSET-BACKED',
-        desc: 'Access interest-free funding solutions to scale up your business. Our asset-backed structures provide a secure path to capital without the burden of Riba.',
-        icon: (
-            <>
-                <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
-                <line x1="2" y1="10" x2="22" y2="10" />
-            </>
-        )
-    }
+const iconMap = {
+    'shield': <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
+    'home': (
+        <>
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+            <polyline points="9 22 9 12 15 12 15 22" />
+        </>
+    ),
+    'trend-up': (
+        <>
+            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+            <polyline points="17 6 23 6 23 12" />
+        </>
+    ),
+    'credit-card': (
+        <>
+            <rect x="2" y="5" width="20" height="14" rx="2" ry="2" />
+            <line x1="2" y1="10" x2="22" y2="10" />
+        </>
+    )
 };
 
 export default function ServicesSection({ services, locale }) {
@@ -68,23 +37,11 @@ export default function ServicesSection({ services, locale }) {
         { id: 4, slug: 'financing', name_en: 'Financing', subtitle_en: 'Direct investments in high-growth, ethical enterprises.' }
     ];
 
-    // Ensure we sort or filter displayServices based on the 4 slugs to maintain order 1, 2, 3, 4
-    const slugsOrder = ['shariah', 'trust-fund', 'investment', 'financing'];
-    const orderedServices = [];
-    slugsOrder.forEach(slug => {
-        const found = displayServices.find(s => s.slug === slug || (slug === 'shariah' && s.slug === 'sharia'));
-        if (found) {
-            orderedServices.push(found);
-        }
+    const orderedServices = [...displayServices].sort((a, b) => {
+        const orderA = a.order !== undefined && a.order !== null ? Number(a.order) : 999;
+        const orderB = b.order !== undefined && b.order !== null ? Number(b.order) : 999;
+        return orderA - orderB;
     });
-    // Fallback if not all 4 are found
-    if (orderedServices.length < 4) {
-        displayServices.forEach(s => {
-            if (!orderedServices.includes(s)) {
-                orderedServices.push(s);
-            }
-        });
-    }
 
     return (
         <section style={{ backgroundColor: '#F7F6F5', padding: '40px 0' }}>
@@ -140,16 +97,18 @@ export default function ServicesSection({ services, locale }) {
                     <div className="grid-2" style={{ gap: '24px' }}>
                         {orderedServices.slice(0, 4).map((service, idx) => {
                             const isHovered = hoveredIdx === idx;
-
-                            // Get details from mapping or fallback
-                            const cleanSlug = service.slug === 'sharia' ? 'shariah' : service.slug;
-                            const staticData = serviceData[cleanSlug] || {
-                                num: String(idx + 1).padStart(2, '0'),
-                                title: locale === 'id' && service.name_id ? service.name_id : service.name_en,
-                                badge: 'SERVICES',
-                                desc: locale === 'id' && service.subtitle_id ? service.subtitle_id : service.subtitle_en,
-                                icon: <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                            };
+                            
+                            const sNum = String(idx + 1).padStart(2, '0');
+                            const sTitle = locale === 'id' && service.name_id ? service.name_id : service.name_en;
+                            const sBadge = 'SERVICES'; // Or read from db if you want
+                            const sDesc = locale === 'id' && service.description_id ? service.description_id : service.description_en;
+                            
+                            // Map icon
+                            let sIcon = <path d="M12 2L2 7l10 5 10-5-10-5z" />;
+                            if (service.slug === 'shariah' || service.slug === 'sharia') sIcon = iconMap['shield'];
+                            else if (service.slug === 'trust-fund') sIcon = iconMap['home'];
+                            else if (service.slug === 'investment') sIcon = iconMap['trend-up'];
+                            else if (service.slug === 'financing') sIcon = iconMap['credit-card'];
 
                             return (
                                 <Link
@@ -184,7 +143,7 @@ export default function ServicesSection({ services, locale }) {
                                             transition: 'all 0.3s ease'
                                         }}>
                                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                                                {staticData.icon}
+                                                {sIcon}
                                             </svg>
                                         </div>
                                         <span style={{
@@ -193,7 +152,7 @@ export default function ServicesSection({ services, locale }) {
                                             color: isHovered ? 'rgba(255,255,255,0.4)' : '#6B6D0F',
                                             transition: 'color 0.3s ease'
                                         }}>
-                                            {staticData.num}
+                                            {sNum}
                                         </span>
                                     </div>
 
@@ -212,7 +171,7 @@ export default function ServicesSection({ services, locale }) {
                                         color: isHovered ? '#C4D19E' : '#6B6D0F',
                                         transition: 'all 0.3s ease'
                                     }}>
-                                        {staticData.badge}
+                                        {sBadge}
                                     </div>
 
                                     {/* Title */}
@@ -225,7 +184,7 @@ export default function ServicesSection({ services, locale }) {
                                         lineHeight: '1.3',
                                         transition: 'color 0.3s ease'
                                     }}>
-                                        {staticData.title}
+                                        {sTitle}
                                     </h3>
 
                                     {/* Description */}
@@ -235,9 +194,13 @@ export default function ServicesSection({ services, locale }) {
                                         color: isHovered ? '#A3A8A0' : '#555555',
                                         marginBottom: '24px',
                                         marginTop: 0,
-                                        transition: 'color 0.3s ease'
+                                        transition: 'color 0.3s ease',
+                                        display: '-webkit-box',
+                                        WebkitLineClamp: 3,
+                                        WebkitBoxOrient: 'vertical',
+                                        overflow: 'hidden'
                                     }}>
-                                        {staticData.desc}
+                                        {sDesc}
                                     </p>
 
                                     {/* Link */}

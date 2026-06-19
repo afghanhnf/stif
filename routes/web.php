@@ -16,7 +16,7 @@ use App\Http\Controllers\SearchController;
 Route::get('/api/search', [SearchController::class, 'search'])->name('api.search');
 
 // Sitemap
-Route::get('/sitemap.xml', [SitemapController::class, 'index']);
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 /*
 |--------------------------------------------------------------------------

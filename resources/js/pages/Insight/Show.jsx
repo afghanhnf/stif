@@ -40,7 +40,9 @@ const fallbackImages = {
 
 const getArticleImage = (art) => {
     if (art.featured_image) {
-        return `/storage/${art.featured_image}`;
+        return art.featured_image.startsWith('/') 
+            ? art.featured_image 
+            : `/storage/${art.featured_image}`;
     }
     return fallbackImages[art.slug] || '/images/article-buildings.png';
 };
@@ -94,6 +96,7 @@ export default function InsightShow({ locale, article, related, settings }) {
     const rawReadTime = article.read_time_minutes || article.reading_time || 5;
     const readTime = `${rawReadTime} ${text.readTime}`;
     const featuredImage = getArticleImage(article);
+    const tags = locale === 'id' && article.tags_id ? article.tags_id : (article.tags_en || []);
 
     const [copied, setCopied] = useState(false);
     const handleShare = () => {
@@ -171,14 +174,6 @@ export default function InsightShow({ locale, article, related, settings }) {
                                             {readTime}
                                         </span>
                                     </div>
-                                    <button className="share-btn" onClick={handleShare}>
-                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}>
-                                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-                                            <polyline points="16 6 12 2 8 6" />
-                                            <line x1="12" y1="2" x2="12" y2="15" />
-                                        </svg>
-                                        <span>{copied ? text.copied : text.share}</span>
-                                    </button>
                                 </div>
                             </header>
                         </FadeIn>
@@ -188,6 +183,23 @@ export default function InsightShow({ locale, article, related, settings }) {
                             <FadeIn direction="up">
                                 <div className="insight-show__image">
                                     <img src={featuredImage} alt={title} loading="lazy" decoding="async" />
+                                    
+                                    {tags && tags.length > 0 && (
+                                        <div className="article-image-tags">
+                                            {tags.map((tag, idx) => (
+                                                <span key={idx} className="image-tag">{tag}</span>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    <button className="share-btn share-btn--image" onClick={handleShare}>
+                                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ marginRight: '6px' }}>
+                                            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                                            <polyline points="16 6 12 2 8 6" />
+                                            <line x1="12" y1="2" x2="12" y2="15" />
+                                        </svg>
+                                        <span>{copied ? text.copied : text.share}</span>
+                                    </button>
                                 </div>
                             </FadeIn>
                         )}
@@ -396,6 +408,45 @@ export default function InsightShow({ locale, article, related, settings }) {
                     overflow: hidden;
                     margin-bottom: 16px;
                     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.01);
+                    position: relative;
+                }
+                
+                .article-image-tags {
+                    position: absolute;
+                    bottom: 24px;
+                    left: 24px;
+                    display: flex;
+                    gap: 8px;
+                    flex-wrap: wrap;
+                    z-index: 2;
+                }
+
+                .image-tag {
+                    background-color: rgba(255, 255, 255, 0.95);
+                    backdrop-filter: blur(4px);
+                    color: #131810;
+                    padding: 8px 16px;
+                    border-radius: 99px;
+                    font-size: 11px;
+                    font-weight: 800;
+                    letter-spacing: 0.05em;
+                    text-transform: uppercase;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                }
+
+                .share-btn--image {
+                    position: absolute;
+                    top: 24px;
+                    right: 24px;
+                    background-color: rgba(255, 255, 255, 0.95);
+                    backdrop-filter: blur(4px);
+                    border: none;
+                    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                    z-index: 2;
+                }
+                
+                .share-btn--image:hover {
+                    background-color: #ffffff;
                 }
                 
                 .insight-show__image img {

@@ -10,6 +10,8 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\DateTimePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\Select;
+use Filament\Forms\Components\TagsInput;
 use Filament\Schemas\Components\Section;
 
 class ArticleForm
@@ -26,10 +28,30 @@ class ArticleForm
                             ->unique(ignoreRecord: true),
                         TextInput::make('author')
                             ->maxLength(255),
-                        TextInput::make('category')
-                            ->maxLength(255),
-                        TextInput::make('featured_image')
-                            ->maxLength(255),
+                        Select::make('category')
+                            ->label('Category')
+                            ->options(function () {
+                                return \App\Models\Article::query()
+                                    ->whereNotNull('category')
+                                    ->where('category', '!=', '')
+                                    ->distinct()
+                                    ->pluck('category', 'category')
+                                    ->toArray();
+                            })
+                            ->searchable()
+                            ->createOptionForm([
+                                TextInput::make('category')
+                                    ->label('New Category')
+                                    ->required()
+                                    ->maxLength(255),
+                            ])
+                            ->createOptionUsing(function (array $data) {
+                                return $data['category'];
+                            }),
+                        FileUpload::make('featured_image')
+                            ->image()
+                            ->directory('articles')
+                            ->preserveFilenames(),
                         TextInput::make('read_time_minutes')
                             ->numeric()
                             ->default(5),
@@ -52,6 +74,8 @@ class ArticleForm
                                 RichEditor::make('content_en')
                                     ->label('Content (English)')
                                     ->columnSpanFull(),
+                                TagsInput::make('tags_en')
+                                    ->label('Tags (English)'),
                             ]),
                         Tabs\Tab::make('Indonesian')
                             ->schema([
@@ -64,6 +88,8 @@ class ArticleForm
                                 RichEditor::make('content_id')
                                     ->label('Content (Indonesian)')
                                     ->columnSpanFull(),
+                                TagsInput::make('tags_id')
+                                    ->label('Tags (Indonesian)'),
                             ]),
                     ])->columnSpanFull(),
             ]);

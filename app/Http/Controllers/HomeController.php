@@ -23,7 +23,7 @@ class HomeController extends Controller
             'services' => Service::published()->get(),
             'articles' => Article::published()->take(3)->get(),
             'portfolios' => Portfolio::published()->take(3)->get(),
-            'heroSection' => HeroSection::where('is_active', true)->first(),
+            'heroSection' => HeroSection::where('is_active', true)->get(),
             'profile' => Profile::where('is_active', true)->first(),
             'settings' => [
                 'phone'         => Setting::get('phone_jakarta', '+62 21 1234 567'),

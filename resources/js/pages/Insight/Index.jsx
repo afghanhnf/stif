@@ -149,7 +149,9 @@ function formatDate(value, locale) {
 
 function articleImage(article, fallback) {
     if (article.featured_image) {
-        return `/storage/${article.featured_image}`;
+        return article.featured_image.startsWith('/') 
+            ? article.featured_image 
+            : `/storage/${article.featured_image}`;
     }
 
     return article.image || fallback.image;
@@ -188,14 +190,26 @@ export default function InsightIndex({ locale, articles, settings }) {
     const text = copy[locale] || copy.en;
 
     const [activeCategory, setActiveCategory] = useState('ALL');
+    const [visibleCount, setVisibleCount] = useState(6);
 
     const items = normalizeArticles(articles, locale);
+    
+    // Generate dynamic filters based on unique categories from the articles
+    const dynamicFilters = [locale === 'id' ? 'Semua' : 'All'];
+    const uniqueCategories = [...new Set(items.map(item => item.category))].filter(Boolean);
+    
+    uniqueCategories.forEach(cat => {
+        const displayCat = cat.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+        dynamicFilters.push(displayCat);
+    });
+
     const filteredItems = activeCategory === 'ALL'
         ? items
         : items.filter(item => item.category === activeCategory);
 
     const featured = filteredItems[0];
-    const secondary = filteredItems.slice(1, 6);
+    const secondary = filteredItems.slice(1, visibleCount);
+    const hasMore = filteredItems.length > visibleCount;
 
     const breadcrumbItems = [
         { label: locale === 'id' ? 'Beranda' : 'Home', url: prefix || '/' },
@@ -224,14 +238,17 @@ export default function InsightIndex({ locale, articles, settings }) {
 
                     <FadeIn direction="up">
                         <div className="insight-filters" aria-label="Insight categories">
-                            {text.filters.map((filter) => {
+                            {dynamicFilters.map((filter) => {
                                 const categoryKey = getCategoryFromFilter(filter);
                                 const isActive = activeCategory === categoryKey;
                                 return (
                                     <button 
                                         key={filter} 
                                         className={isActive ? 'is-active' : ''} 
-                                        onClick={() => setActiveCategory(categoryKey)}
+                                        onClick={() => {
+                                            setActiveCategory(categoryKey);
+                                            setVisibleCount(6);
+                                        }}
                                         type="button"
                                     >
                                         {filter}
@@ -288,6 +305,37 @@ export default function InsightIndex({ locale, articles, settings }) {
                                     ))}
                                 </section>
                             </FadeIn>
+                            
+                            {hasMore && (
+                                <FadeIn direction="up">
+                                    <div style={{ display: 'flex', justifyContent: 'center', marginTop: '48px', marginBottom: '24px' }}>
+                                        <button 
+                                            onClick={() => setVisibleCount(prev => prev + 6)}
+                                            style={{
+                                                backgroundColor: '#1E2519',
+                                                color: '#FFF',
+                                                border: 'none',
+                                                borderRadius: '999px',
+                                                padding: '14px 32px',
+                                                fontSize: '14px',
+                                                fontWeight: 'bold',
+                                                cursor: 'pointer',
+                                                transition: 'background-color 0.2s',
+                                                display: 'flex',
+                                                alignItems: 'center',
+                                                gap: '8px'
+                                            }}
+                                            onMouseOver={e => e.currentTarget.style.backgroundColor = '#131810'}
+                                            onMouseOut={e => e.currentTarget.style.backgroundColor = '#1E2519'}
+                                        >
+                                            {locale === 'id' ? 'Muat Lebih Banyak' : 'Load More'}
+                                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                                                <polyline points="6 9 12 15 18 9"></polyline>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </FadeIn>
+                            )}
                         </>
                     ) : (
                         <div className="insight-empty">{text.empty}</div>

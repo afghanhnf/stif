@@ -46,7 +46,7 @@ export default function InsightSection({ articles, locale }) {
                     year: 'numeric', month: 'long', day: 'numeric'
                 }),
                 read_time: item.reading_time ? `${item.reading_time} min read` : dummyArticles[idx].read_time,
-                image: item.featured_image ? `/storage/${item.featured_image}` : dummyArticles[idx].image
+                image: item.featured_image ? (item.featured_image.startsWith('/') ? item.featured_image : `/storage/${item.featured_image}`) : dummyArticles[idx].image
             };
         })
         : dummyArticles;

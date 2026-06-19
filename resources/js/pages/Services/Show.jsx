@@ -413,7 +413,7 @@ function ShariahPage({ locale, service, settings, prefix }) {
                                             {text.typicalTickets.minLabel}
                                         </span>
                                         <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                            {text.typicalTickets.minVal}
+                                            {service.ticket_minimum || text.typicalTickets.minVal}
                                         </strong>
                                     </div>
                                     <div>
@@ -421,7 +421,7 @@ function ShariahPage({ locale, service, settings, prefix }) {
                                             {text.typicalTickets.medLabel}
                                         </span>
                                         <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                            {text.typicalTickets.medVal}
+                                            {service.ticket_median || text.typicalTickets.medVal}
                                         </strong>
                                     </div>
                                     <div>
@@ -429,7 +429,7 @@ function ShariahPage({ locale, service, settings, prefix }) {
                                             {text.typicalTickets.maxLabel}
                                         </span>
                                         <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                            {text.typicalTickets.maxVal}
+                                            {service.ticket_maximum || text.typicalTickets.maxVal}
                                         </strong>
                                     </div>
                                 </div>
@@ -468,7 +468,7 @@ function ShariahPage({ locale, service, settings, prefix }) {
                                     padding: 0,
                                     margin: '0 0 36px 0'
                                 }}>
-                                    {text.whatYouGet.items.map((item, idx) => (
+                                    {((locale === 'id' ? service.what_you_get_id : service.what_you_get_en) || text.whatYouGet.items).map((item, idx) => (
                                         <li key={idx} style={{
                                             display: 'flex',
                                             alignItems: 'center',
@@ -1130,7 +1130,7 @@ function TrustFundPage({ locale, service, settings, prefix }) {
                                     padding: 0,
                                     margin: '0 0 36px 0'
                                 }}>
-                                    {text.whatYouGet.items.map((item, idx) => (
+                                    {((locale === 'id' ? service.what_you_get_id : service.what_you_get_en) || text.whatYouGet.items).map((item, idx) => (
                                         <li key={idx} style={{
                                             display: 'flex',
                                             alignItems: 'center',
@@ -1268,7 +1268,7 @@ function TrustFundPage({ locale, service, settings, prefix }) {
                                         {text.typicalTickets.minLabel}
                                     </span>
                                     <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                        {text.typicalTickets.minVal}
+                                        {service.ticket_minimum || text.typicalTickets.minVal}
                                     </strong>
                                 </div>
                                 <div>
@@ -1276,7 +1276,7 @@ function TrustFundPage({ locale, service, settings, prefix }) {
                                         {text.typicalTickets.medLabel}
                                     </span>
                                     <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                        {text.typicalTickets.medVal}
+                                        {service.ticket_median || text.typicalTickets.medVal}
                                     </strong>
                                 </div>
                                 <div>
@@ -1284,7 +1284,7 @@ function TrustFundPage({ locale, service, settings, prefix }) {
                                         {text.typicalTickets.maxLabel}
                                     </span>
                                     <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                        {text.typicalTickets.maxVal}
+                                        {service.ticket_maximum || text.typicalTickets.maxVal}
                                     </strong>
                                 </div>
                             </div>
@@ -1676,7 +1676,7 @@ function InvestmentPage({ locale, service, settings, prefix }) {
                                     padding: 0,
                                     margin: '0 0 36px 0'
                                 }}>
-                                    {text.whatYouGet.items.map((item, idx) => (
+                                    {((locale === 'id' ? service.what_you_get_id : service.what_you_get_en) || text.whatYouGet.items).map((item, idx) => (
                                         <li key={idx} style={{
                                             display: 'flex',
                                             alignItems: 'center',
@@ -1814,7 +1814,7 @@ function InvestmentPage({ locale, service, settings, prefix }) {
                                         {text.typicalTickets.minLabel}
                                     </span>
                                     <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                        {text.typicalTickets.minVal}
+                                        {service.ticket_minimum || text.typicalTickets.minVal}
                                     </strong>
                                 </div>
                                 <div>
@@ -1822,7 +1822,7 @@ function InvestmentPage({ locale, service, settings, prefix }) {
                                         {text.typicalTickets.medLabel}
                                     </span>
                                     <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                        {text.typicalTickets.medVal}
+                                        {service.ticket_median || text.typicalTickets.medVal}
                                     </strong>
                                 </div>
                                 <div>
@@ -1830,7 +1830,7 @@ function InvestmentPage({ locale, service, settings, prefix }) {
                                         {text.typicalTickets.maxLabel}
                                     </span>
                                     <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                        {text.typicalTickets.maxVal}
+                                        {service.ticket_maximum || text.typicalTickets.maxVal}
                                     </strong>
                                 </div>
                             </div>
@@ -2221,7 +2221,7 @@ function FinancingPage({ locale, service, settings, prefix }) {
                                     padding: 0,
                                     margin: '0 0 36px 0'
                                 }}>
-                                    {text.whatYouGet.items.map((item, idx) => (
+                                    {((locale === 'id' ? service.what_you_get_id : service.what_you_get_en) || text.whatYouGet.items).map((item, idx) => (
                                         <li key={idx} style={{
                                             display: 'flex',
                                             alignItems: 'center',
@@ -2359,7 +2359,7 @@ function FinancingPage({ locale, service, settings, prefix }) {
                                         {text.typicalTickets.minLabel}
                                     </span>
                                     <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                        {text.typicalTickets.minVal}
+                                        {service.ticket_minimum || text.typicalTickets.minVal}
                                     </strong>
                                 </div>
                                 <div>
@@ -2367,7 +2367,7 @@ function FinancingPage({ locale, service, settings, prefix }) {
                                         {text.typicalTickets.medLabel}
                                     </span>
                                     <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                        {text.typicalTickets.medVal}
+                                        {service.ticket_median || text.typicalTickets.medVal}
                                     </strong>
                                 </div>
                                 <div>
@@ -2375,7 +2375,7 @@ function FinancingPage({ locale, service, settings, prefix }) {
                                         {text.typicalTickets.maxLabel}
                                     </span>
                                     <strong style={{ display: 'block', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: '400', color: '#131810', fontFamily: 'Josefin Sans, sans-serif' }}>
-                                        {text.typicalTickets.maxVal}
+                                        {service.ticket_maximum || text.typicalTickets.maxVal}
                                     </strong>
                                 </div>
                             </div>

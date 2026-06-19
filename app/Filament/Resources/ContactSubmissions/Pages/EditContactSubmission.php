@@ -10,6 +10,15 @@ class EditContactSubmission extends EditRecord
 {
     protected static string $resource = ContactSubmissionResource::class;
 
+    public function mount(int|string $record): void
+    {
+        parent::mount($record);
+
+        if ($this->record->status === 'new') {
+            $this->record->update(['status' => 'read']);
+        }
+    }
+
     protected function getHeaderActions(): array
     {
         return [

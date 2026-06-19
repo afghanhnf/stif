@@ -276,13 +276,20 @@ export default function WhoWeAre({ locale, team, tagline, settings, profile }) {
                                 <div className="who-team__grid">
                                     {team.map((member) => (
                                         <article key={member.id}>
-                                            <div
-                                                className="who-team__photo"
-                                                style={{ backgroundImage: member.photo ? `url(/storage/${member.photo})` : 'none' }}
-                                            />
+                                            {member.photo && (
+                                                <div
+                                                    className="who-team__photo"
+                                                    style={{ backgroundImage: `url(/storage/${member.photo})` }}
+                                                />
+                                            )}
                                             <h3>{member.name}</h3>
                                             <strong>{locale === 'id' && member.title_id ? member.title_id : member.title_en}</strong>
                                             <p>{locale === 'id' && member.bio_id ? member.bio_id : member.bio_en}</p>
+                                            {member.linkedin_url && (
+                                                <a href={member.linkedin_url} target="_blank" rel="noopener noreferrer" className="who-team__linkedin" style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', marginTop: '8px', color: 'inherit', fontWeight: '500', textDecoration: 'none' }}>
+                                                    LinkedIn <ArrowUpRightIcon size={14} />
+                                                </a>
+                                            )}
                                         </article>
                                     ))}
                                 </div>

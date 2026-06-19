@@ -18,6 +18,7 @@ class ContactSubmissionsTable
                 \Filament\Tables\Columns\TextColumn::make('company')->searchable(),
                 \Filament\Tables\Columns\TextColumn::make('project_title')->searchable(),
                 \Filament\Tables\Columns\TextColumn::make('sector')->searchable(),
+                \Filament\Tables\Columns\TextColumn::make('status')->badge(),
                 \Filament\Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable(),
             ])
             ->filters([

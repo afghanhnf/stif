@@ -11,37 +11,47 @@ export default function PrivacyPolicy({ locale, settings }) {
             title: 'Privacy Policy',
             subtitle: 'Last updated: June 18, 2026',
             badge: 'LEGAL & COMPLIANCE',
-            intro: 'STIF Capital ("we", "us", "our") values your privacy. We are committed to protecting your personal data and ensuring transparent operations in alignment with our fiduciary duties and Sharia principles. This policy explains how we collect and process your information when you visit stifcapital.com or submit investment mandates.',
+            intro: 'STIF Capital ("we", "us", "our") values your privacy and is committed to protecting your personal data in accordance with prevailing data protection laws and Sharia principles. This Privacy Policy details our practices concerning the collection, use, and disclosure of your information when you visit stifcapital.com or engage with our services.',
             sections: [
                 {
                     id: 'introduction',
                     title: '1. Introduction',
-                    text: 'We operate wholly under Sharia principles. Transparency, responsibility, and fairness are at the core of our business and how we handle client and visitor data. We implement this policy to explain the collection, usage, and security of information obtained via our website.',
+                    text: 'This Privacy Policy governs the manner in which STIF Capital collects, uses, maintains, and discloses information collected from users of our website and services. Operating under Sharia principles, transparency, responsibility, and fairness are at the core of our business and how we handle client data. By using our website, you consent to the data practices described in this statement.',
                 },
                 {
                     id: 'information-collection',
                     title: '2. Information We Collect',
-                    text: 'We collect information you provide voluntarily when submitting investment mandates or contacting us, including your name, email, phone number, firm name, and project description. We also collect automatic data like IP address, browser type, and page access patterns to improve security and performance.',
+                    text: 'We collect personally identifiable information that you voluntarily provide to us when submitting investment mandates, subscribing to our newsletter, or contacting us. This may include your name, email address, phone number, company name, and project descriptions. We also automatically collect anonymous demographic information, such as your IP address, browser type, domain names, access times, and referring website addresses to maintain the quality of our service and generate general statistics regarding use of the website.',
                 },
                 {
                     id: 'use-of-information',
-                    title: '3. Use of Information',
-                    text: 'Your information is processed to evaluate project submissions, manage our services, communicate updates, and perform compliance reviews. In keeping with Sharia transparency, we do not engage in unauthorized data sharing, monetization, or selling of personal details.',
+                    title: '3. Use of Your Information',
+                    text: 'STIF Capital collects and uses your personal information to operate its website and deliver the services you have requested. We may also use your personally identifiable information to inform you of other products or services available from STIF Capital and its affiliates. We do not sell, rent, or lease our customer lists to third parties.',
                 },
                 {
                     id: 'sharia-compliance',
                     title: '4. Sharia Compliance Audits',
-                    text: 'Under Sharia private equity principles, our contracts and operations are subject to oversight by our independent Shariah Supervisory Board. When audits are conducted, aggregate or anonymized data may be reviewed to verify the ethical integrity of transactions. Any sharing with board members is conducted under strict confidentiality.',
+                    text: 'Under Sharia private equity principles, our contracts and operations are subject to oversight by our independent Shariah Supervisory Board. When audits are conducted, aggregate or anonymized data may be reviewed to verify the ethical integrity of transactions. Any sharing with board members is conducted under strict confidentiality agreements.',
+                },
+                {
+                    id: 'cookies',
+                    title: '5. Use of Cookies',
+                    text: 'Our website may use "cookies" to help you personalize your online experience. A cookie is a text file that is placed on your hard disk by a web page server. Cookies cannot be used to run programs or deliver viruses to your computer. You have the ability to accept or decline cookies. Most web browsers automatically accept cookies, but you can usually modify your browser setting to decline cookies if you prefer.',
+                },
+                {
+                    id: 'third-parties',
+                    title: '6. Third-Party Links & Services',
+                    text: 'Our website may contain links to other sites. Please be aware that we are not responsible for the content or privacy practices of such other sites. We encourage our users to be aware when they leave our site and to read the privacy statements of any other site that collects personally identifiable information.',
                 },
                 {
                     id: 'data-protection',
-                    title: '5. Data Protection & Retention',
-                    text: 'We apply institutional-grade technical and organizational security measures to protect your data. Information is retained only as long as necessary to fulfill the services or as required by regulatory compliance under Indonesian law.',
+                    title: '7. Security & Data Retention',
+                    text: 'We secure your personal information from unauthorized access, use, or disclosure. We use SSL protocol to protect data transmitted through our website. We retain personal data only for as long as necessary to fulfill the purposes for which it was collected, including for the purposes of satisfying any legal, regulatory, tax, accounting, or reporting requirements under Indonesian law.',
                 },
                 {
                     id: 'contact-us',
-                    title: '6. Contact Us',
-                    text: 'If you have questions about this policy or your personal data, please contact our privacy compliance team at partners@stifcapital.com.',
+                    title: '8. Contact Information',
+                    text: 'STIF Capital welcomes your questions or comments regarding this Privacy Policy. If you believe that we have not adhered to this Statement, please contact our compliance team at partners@stifcapital.com or write to us at our registered office.',
                 }
             ],
             quickLinks: 'QUICK NAVIGATION'
@@ -50,37 +60,47 @@ export default function PrivacyPolicy({ locale, settings }) {
             title: 'Kebijakan Privasi',
             subtitle: 'Terakhir diperbarui: 18 Juni 2026',
             badge: 'HUKUM & KEPATUHAN',
-            intro: 'STIF Capital ("kami", "perusahaan") sangat menghargai privasi Anda. Kami berkomitmen untuk melindungi data pribadi Anda dan memastikan operasional yang transparan demi menjaga amanah serta kepatuhan terhadap prinsip Syariah. Kebijakan ini menjelaskan bagaimana kami mengumpulkan dan memproses informasi Anda saat mengunjungi stifcapital.com atau mengirimkan mandat proyek.',
+            intro: 'STIF Capital ("kami", "perusahaan") sangat menghargai privasi Anda dan berkomitmen untuk melindungi data pribadi Anda sesuai dengan undang-undang perlindungan data yang berlaku serta prinsip-prinsip Syariah. Kebijakan Privasi ini menjelaskan praktik kami terkait pengumpulan, penggunaan, dan pengungkapan informasi Anda.',
             sections: [
                 {
                     id: 'introduction',
                     title: '1. Pendahuluan',
-                    text: 'Kami beroperasi sepenuhnya di bawah prinsip Syariah. Transparansi, tanggung jawab, dan keadilan adalah inti dari bisnis kami dan bagaimana kami menangani data klien serta pengunjung. Kami menerapkan kebijakan ini untuk menjelaskan pengumpulan, penggunaan, dan keamanan informasi yang diperoleh melalui situs web kami.',
+                    text: 'Kebijakan Privasi ini mengatur cara STIF Capital mengumpulkan, menggunakan, memelihara, dan mengungkapkan informasi yang dikumpulkan dari pengguna situs web dan layanan kami. Beroperasi di bawah prinsip Syariah, transparansi, tanggung jawab, dan keadilan adalah inti dari bisnis kami. Dengan menggunakan situs web kami, Anda menyetujui praktik data yang dijelaskan dalam pernyataan ini.',
                 },
                 {
                     id: 'information-collection',
                     title: '2. Informasi yang Kami Kumpulkan',
-                    text: 'Kami mengumpulkan informasi yang Anda berikan secara sukarela saat mengajukan mandat investasi atau menghubungi kami, termasuk nama, email, nomor telepon, nama perusahaan, dan deskripsi proyek. Kami juga mengumpulkan data otomatis seperti alamat IP, jenis browser, dan pola akses halaman untuk meningkatkan keamanan serta kinerja situs.',
+                    text: 'Kami mengumpulkan informasi identitas pribadi yang Anda berikan secara sukarela saat mengajukan mandat investasi, berlangganan nawala kami, atau menghubungi kami. Ini dapat mencakup nama, alamat email, nomor telepon, nama perusahaan, dan deskripsi proyek Anda. Kami juga secara otomatis mengumpulkan informasi demografis anonim seperti alamat IP, jenis browser, dan waktu akses untuk meningkatkan kualitas layanan kami.',
                 },
                 {
                     id: 'use-of-information',
-                    title: '3. Penggunaan Informasi',
-                    text: 'Informasi Anda diproses untuk mengevaluasi pengajuan proyek, mengelola layanan kami, mengomunikasikan pembaruan, dan melakukan tinjauan kepatuhan. Selaras dengan prinsip transparansi Syariah, kami tidak melakukan pembagian data secara tidak sah, monetisasi, atau penjualan detail pribadi Anda.',
+                    title: '3. Penggunaan Informasi Anda',
+                    text: 'STIF Capital menggunakan informasi pribadi Anda untuk mengoperasikan situs webnya dan memberikan layanan yang Anda minta. Kami juga dapat menggunakan informasi identitas pribadi Anda untuk memberi tahu Anda tentang produk atau layanan lain yang tersedia dari STIF Capital. Kami tidak menjual, menyewakan, atau meminjamkan daftar pelanggan kami kepada pihak ketiga.',
                 },
                 {
                     id: 'sharia-compliance',
                     title: '4. Audit Kepatuhan Syariah',
-                    text: 'Berdasarkan prinsip private equity Syariah, seluruh kontrak dan operasional kami diawasi oleh Dewan Pengawas Syariah kami yang independen. Saat audit dilakukan, data agregat atau anonim dapat ditinjau untuk memverifikasi integritas etis dari transaksi. Setiap pembagian data dengan anggota dewan dilakukan di bawah perjanjian kerahasiaan yang ketat.',
+                    text: 'Berdasarkan prinsip private equity Syariah, operasional kami diawasi oleh Dewan Pengawas Syariah yang independen. Saat audit dilakukan, data agregat atau anonim dapat ditinjau untuk memverifikasi integritas etis dari transaksi. Setiap pembagian data dengan anggota dewan dilakukan di bawah perjanjian kerahasiaan yang ketat.',
+                },
+                {
+                    id: 'cookies',
+                    title: '5. Penggunaan Cookie',
+                    text: 'Situs web kami dapat menggunakan "cookie" untuk membantu Anda mempersonalisasi pengalaman online Anda. Cookie adalah file teks yang ditempatkan di hard disk Anda oleh server halaman web. Anda memiliki kemampuan untuk menerima atau menolak cookie melalui pengaturan browser Anda.',
+                },
+                {
+                    id: 'third-parties',
+                    title: '6. Tautan & Layanan Pihak Ketiga',
+                    text: 'Situs web kami mungkin berisi tautan ke situs lain. Harap dicatat bahwa kami tidak bertanggung jawab atas konten atau praktik privasi situs lain tersebut. Kami mendorong pengguna kami untuk waspada ketika mereka meninggalkan situs kami dan membaca pernyataan privasi dari situs lain mana pun yang mengumpulkan informasi identitas pribadi.',
                 },
                 {
                     id: 'data-protection',
-                    title: '5. Perlindungan & Penyimpanan Data',
-                    text: 'Kami menerapkan langkah-langkah keamanan teknis dan organisasi tingkat institusi untuk melindungi data Anda. Informasi hanya disimpan selama diperlukan untuk memenuhi layanan atau sebagaimana diwajibkan oleh kepatuhan regulasi di bawah hukum Indonesia.',
+                    title: '7. Keamanan & Retensi Data',
+                    text: 'Kami mengamankan informasi pribadi Anda dari akses, penggunaan, atau pengungkapan yang tidak sah menggunakan protokol keamanan institusional (SSL). Kami menyimpan data pribadi hanya selama diperlukan untuk memenuhi tujuan pengumpulannya, termasuk untuk memenuhi persyaratan hukum, peraturan, pajak, atau akuntansi di bawah hukum Indonesia.',
                 },
                 {
                     id: 'contact-us',
-                    title: '6. Hubungi Kami',
-                    text: 'Jika Anda memiliki pertanyaan mengenai kebijakan ini atau data pribadi Anda, silakan hubungi tim kepatuhan privasi kami di partners@stifcapital.com.',
+                    title: '8. Informasi Kontak',
+                    text: 'STIF Capital menyambut pertanyaan atau komentar Anda mengenai Kebijakan Privasi ini. Jika Anda memiliki keluhan atau pertanyaan, silakan hubungi tim kepatuhan kami di partners@stifcapital.com atau kirimkan surat ke kantor terdaftar kami.',
                 }
             ],
             quickLinks: 'NAVIGASI CEPAT'

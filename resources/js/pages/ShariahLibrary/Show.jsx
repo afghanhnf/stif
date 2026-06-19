@@ -215,14 +215,7 @@ function normalizeAkads(dbAkads, locale) {
     });
 }
 
-const parseList = (text) => {
-    if (!text) return [];
-    return text
-        .split('\n')
-        .map(item => item.trim())
-        .filter(item => item.length > 0)
-        .map(item => item.replace(/^[-*•\s\d\.\)]+/, '').trim());
-};
+
 
 const cleanSlug = (slug) => {
     if (slug === 'murabahah') return 'murabaha';
@@ -245,9 +238,7 @@ export default function ShariahLibraryShow({ locale, akad, prev, next, akads, se
     const currentExampleTitle = exampleTitles[locale]?.[normalizedSlug] || exampleTitles.en[normalizedSlug] || (locale === 'id' ? 'Struktur Contoh' : 'Structure Example');
     const currentStifDescription = stifApplicationCopy[locale]?.[normalizedSlug] || stifApplicationCopy.en[normalizedSlug] || '';
 
-    // Handle parsed list items
-    const parsedConditions = parseList(sponsorBenefits);
-    const parsedExamples = parseList(example);
+
 
     // Normalize all akads and filter/slice for Explore grid
     const allDisplayAkads = normalizeAkads(akads, locale);
@@ -315,22 +306,12 @@ export default function ShariahLibraryShow({ locale, akad, prev, next, akads, se
                                     <p className="akad-section-text">{definition}</p>
                                 </div>
 
-                                {parsedConditions.length > 0 && (
+                                {sponsorBenefits && (
                                     <div>
                                         <span className="label-gold" style={{ display: 'block', marginBottom: '8px' }}>
                                             {locale === 'id' ? 'KETENTUAN UTAMA' : 'KEY CONDITIONS'}
                                         </span>
-                                        <ul className="conditions-list">
-                                            {parsedConditions.map((cond, index) => (
-                                                <li key={index}>
-                                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#718844" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, marginTop: '2px' }}>
-                                                        <circle cx="12" cy="12" r="10" />
-                                                        <polyline points="8 12 11 15 16 9" />
-                                                    </svg>
-                                                    <span>{cond}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                        <div className="akad-section-text rich-content" dangerouslySetInnerHTML={{ __html: sponsorBenefits }} />
                                     </div>
                                 )}
                             </div>
@@ -348,14 +329,8 @@ export default function ShariahLibraryShow({ locale, akad, prev, next, akads, se
                                 <h3 className="akad-section-title" style={{ fontSize: '28px' }}>
                                     {currentExampleTitle}
                                 </h3>
-                                {parsedExamples.length > 0 ? (
-                                    <ul className="akad-bullet-list">
-                                        {parsedExamples.map((ex, index) => (
-                                            <li key={index}>{ex}</li>
-                                        ))}
-                                    </ul>
-                                ) : (
-                                    <p className="akad-section-text">{example}</p>
+                                {example && (
+                                    <div className="akad-section-text rich-content" dangerouslySetInnerHTML={{ __html: example }} />
                                 )}
                             </div>
 
@@ -436,6 +411,27 @@ export default function ShariahLibraryShow({ locale, akad, prev, next, akads, se
                 .akad-detail-page {
                     background-color: #F7F6F3;
                     padding: 48px 0 120px;
+                }
+                
+                .rich-content ul {
+                    list-style: disc;
+                    padding-left: 20px;
+                    margin: 16px 0;
+                }
+                .rich-content ol {
+                    list-style: decimal;
+                    padding-left: 20px;
+                    margin: 16px 0;
+                }
+                .rich-content li {
+                    margin-bottom: 8px;
+                }
+                .rich-content p {
+                    margin-bottom: 16px;
+                }
+                .rich-content strong, .rich-content b {
+                    font-weight: 800;
+                    color: #131810;
                 }
                 
                 .back-link {

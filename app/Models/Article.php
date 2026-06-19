@@ -17,11 +17,14 @@ class Article extends Model
         'content_en', 'content_id',
         'author', 'category', 'featured_image',
         'read_time_minutes', 'is_published', 'published_at',
+        'tags_en', 'tags_id',
     ];
 
     protected $casts = [
         'is_published' => 'boolean',
         'published_at' => 'datetime',
+        'tags_en' => 'array',
+        'tags_id' => 'array',
     ];
 
     public function getSlugOptions(): SlugOptions

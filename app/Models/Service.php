@@ -17,10 +17,14 @@ class Service extends Model
         'description_en', 'description_id',
         'content_en', 'content_id',
         'icon', 'order', 'is_published',
+        'ticket_minimum', 'ticket_median', 'ticket_maximum',
+        'what_you_get_en', 'what_you_get_id',
     ];
 
     protected $casts = [
         'is_published' => 'boolean',
+        'what_you_get_en' => 'array',
+        'what_you_get_id' => 'array',
     ];
 
     public function getSlugOptions(): SlugOptions

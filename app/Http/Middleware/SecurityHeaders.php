@@ -25,9 +25,20 @@ class SecurityHeaders
             $response->header('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
             $response->header('Referrer-Policy', 'strict-origin-when-cross-origin');
             
+            // Performance Cache Headers (prevent caching of HTML, let assets be cached)
+            $response->header('Cache-Control', 'no-store, no-cache, must-revalidate, max-age=0');
+            $response->header('Pragma', 'no-cache');
+
             // Allow scripts and styles from trusted domains including the local dev server (Vite)
-            // CSP is temporarily removed because it conflicts with Vite dev server and React inline scripts
-            // $response->header('Content-Security-Policy', "...");
+            $csp = "default-src 'self'; " .
+                   "script-src 'self' 'unsafe-inline' 'unsafe-eval' http://localhost:5173 http://127.0.0.1:5173 https://cdn.jsdelivr.net; " .
+                   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; " .
+                   "font-src 'self' https://fonts.gstatic.com data:; " .
+                   "img-src 'self' data: https:; " .
+                   "connect-src 'self' http://localhost:5173 http://127.0.0.1:5173 ws://localhost:5173 ws://127.0.0.1:5173 wss://localhost:5173 wss://127.0.0.1:5173; " .
+                   "object-src 'none';";
+                   
+            $response->header('Content-Security-Policy', $csp);
         }
 
         return $response;

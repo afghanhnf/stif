@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from '@inertiajs/react';
 
@@ -5,22 +6,46 @@ export default function HeroSection({ locale, data }) {
     const { t } = useTranslation();
     const prefix = locale === 'id' ? '/id' : '';
 
-    const badge = data?.[`badge_${locale}`] || 'SHARIA PRIVATE EQUITY';
-    const title = data?.[`title_${locale}`] || 'Prosper with Purpose';
-    const description1 = data?.[`description_1_${locale}`] || 'Discover the power of Sharia-Compliant equity. Guided by a strict Sharia fiduciary structure, we manage every fund with the utmost duty of care.';
-    const description2 = data?.[`description_2_${locale}`] || 'We reject excessive uncertainty and debt-driven models, opting instead for a rock-solid, profit-sharing partnership where your capital generates sustainable growth and more importantly social impact.';
-    const button1Text = data?.[`button_1_text_${locale}`] || 'Pitch a project';
-    const button1Url = data?.button_1_url || '/contact';
-    const button2Text = data?.[`button_2_text_${locale}`] || 'Business Case';
-    const button2Url = data?.button_2_url || '/business-case';
-    const verseArabic = data?.verse_arabic || 'اتَّقُوا اللَّهَ وَأَجْمِلُوا فِي الطَّلَبِ';
-    const verseTranslation = data?.[`verse_translation_${locale}`] || '"Be mindful of Allah, and be moderate in seeking a living."';
-    const image = data?.image ? `/storage/${data.image}` : '/images/hero-building.jpg';
+    const heroes = Array.isArray(data) ? data : (data ? [data] : []);
+    const [activeIndex, setActiveIndex] = useState(0);
+
+    useEffect(() => {
+        if (heroes.length <= 1) return;
+        const interval = setInterval(() => {
+            setActiveIndex((current) => (current + 1) % heroes.length);
+        }, 5000);
+        return () => clearInterval(interval);
+    }, [heroes.length]);
+
+    if (heroes.length === 0) return null;
+
+    const currentHero = heroes[activeIndex];
+
+    const badge = currentHero?.[`badge_${locale}`] || 'SHARIA PRIVATE EQUITY';
+    const title = currentHero?.[`title_${locale}`] || 'Prosper with Purpose';
+    const description1 = currentHero?.[`description_1_${locale}`] || 'Discover the power of Sharia-Compliant equity. Guided by a strict Sharia fiduciary structure, we manage every fund with the utmost duty of care.';
+    const description2 = currentHero?.[`description_2_${locale}`] || 'We reject excessive uncertainty and debt-driven models, opting instead for a rock-solid, profit-sharing partnership where your capital generates sustainable growth and more importantly social impact.';
+    const button1Text = currentHero?.[`button_1_text_${locale}`] || 'Pitch a project';
+    const button1Url = currentHero?.button_1_url || '/contact';
+    const button2Text = currentHero?.[`button_2_text_${locale}`] || 'Business Case';
+    const button2Url = currentHero?.button_2_url || '/business-case';
+    const verseArabic = currentHero?.verse_arabic || 'اتَّقُوا اللَّهَ وَأَجْمِلُوا فِي الطَّلَبِ';
+    const verseTranslation = currentHero?.[`verse_translation_${locale}`] || '"Be mindful of Allah, and be moderate in seeking a living."';
+    const image = currentHero?.image ? `/storage/${currentHero.image}` : '/images/hero-building.jpg';
 
     return (
         <section style={{ backgroundColor: '#F7F6F5', padding: '40px 0', overflow: 'hidden' }}>
             <div className="container">
-                <div className="grid-hero" style={{ gap: '24px', alignItems: 'stretch' }}>
+                <style>{`
+                    @keyframes heroFadeIn {
+                        from { opacity: 0; transform: translateY(10px); }
+                        to { opacity: 1; transform: translateY(0); }
+                    }
+                    .hero-slide {
+                        animation: heroFadeIn 0.5s ease-out forwards;
+                    }
+                `}</style>
+                <div key={activeIndex} className="grid-hero hero-slide" style={{ gap: '24px', alignItems: 'stretch' }}>
                     {/* Left Content Card */}
                     <div style={{
                         backgroundColor: '#FFFFFF',
@@ -148,6 +173,30 @@ export default function HeroSection({ locale, data }) {
                         </div>
                     </div>
                 </div>
+
+                {/* Slider Controls */}
+                {heroes.length > 1 && (
+                    <div style={{ display: 'flex', justifyContent: 'center', gap: '8px', marginTop: '32px' }}>
+                        {heroes.map((_, idx) => (
+                            <button
+                                key={idx}
+                                onClick={() => setActiveIndex(idx)}
+                                style={{
+                                    width: idx === activeIndex ? '24px' : '8px',
+                                    height: '8px',
+                                    borderRadius: '4px',
+                                    backgroundColor: idx === activeIndex ? '#6B6D0F' : 'rgba(107, 109, 15, 0.2)',
+                                    border: 'none',
+                                    cursor: 'pointer',
+                                    transition: 'all 0.3s ease',
+                                    padding: 0
+                                }}
+                                aria-label={`Go to slide ${idx + 1}`}
+                            />
+                        ))}
+                    </div>
+                )}
+
             </div>
         </section>
     );

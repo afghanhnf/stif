@@ -48,34 +48,32 @@ class AkadForm
                                     ->required()
                                     ->maxLength(255)
                                     ->label('Name (English)'),
+                                TextInput::make('subtitle_en')
+                                    ->maxLength(255)
+                                    ->label('Subtitle (English)'),
                                 Textarea::make('definition_en')
                                     ->label('Definition (English)')
                                     ->rows(2),
-                                RichEditor::make('jurisprudence_en')
-                                    ->label('Jurisprudence & Fiqh Basis (English)'),
-                                RichEditor::make('scheme_en')
-                                    ->label('Structure Scheme (English)'),
                                 RichEditor::make('example_en')
-                                    ->label('Real-World Example (English)'),
+                                    ->label('Investment Structure (English)'),
                                 RichEditor::make('sponsor_benefits_en')
-                                    ->label('Benefits for Sponsor (English)'),
+                                    ->label('Key Conditions (English)'),
                             ]),
                         Tabs\Tab::make('Indonesian')
                             ->schema([
                                 TextInput::make('name_id')
                                     ->maxLength(255)
                                     ->label('Name (Indonesian)'),
+                                TextInput::make('subtitle_id')
+                                    ->maxLength(255)
+                                    ->label('Subtitle (Indonesian)'),
                                 Textarea::make('definition_id')
                                     ->label('Definition (Indonesian)')
                                     ->rows(2),
-                                RichEditor::make('jurisprudence_id')
-                                    ->label('Jurisprudence & Fiqh Basis (Indonesian)'),
-                                RichEditor::make('scheme_id')
-                                    ->label('Structure Scheme (Indonesian)'),
                                 RichEditor::make('example_id')
-                                    ->label('Real-World Example (Indonesian)'),
+                                    ->label('Investment Structure (Indonesian)'),
                                 RichEditor::make('sponsor_benefits_id')
-                                    ->label('Benefits for Sponsor (Indonesian)'),
+                                    ->label('Key Conditions (Indonesian)'),
                             ]),
                     ])->columnSpanFull(),
             ]);

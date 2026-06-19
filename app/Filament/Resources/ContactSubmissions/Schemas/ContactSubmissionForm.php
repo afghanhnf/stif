@@ -18,6 +18,10 @@ class ContactSubmissionForm
                 \Filament\Forms\Components\Textarea::make('project_description')->required(),
                 \Filament\Forms\Components\TextInput::make('sector'),
                 \Filament\Forms\Components\TextInput::make('ticket_size_requested'),
+                \Filament\Forms\Components\Select::make('status')
+                    ->options(['new' => 'New', 'read' => 'Read', 'replied' => 'Replied'])
+                    ->default('new')
+                    ->required(),
             ]);
     }
 }

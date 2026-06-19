@@ -7,6 +7,7 @@ use Filament\Schemas\Components\Tabs;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\Toggle;
+use Filament\Forms\Components\FileUpload;
 use Filament\Schemas\Components\Section;
 
 class TeamMemberForm
@@ -20,8 +21,11 @@ class TeamMemberForm
                         TextInput::make('name')
                             ->required()
                             ->maxLength(255),
-                        TextInput::make('photo')
-                            ->maxLength(255),
+                        FileUpload::make('photo')
+                            ->image()
+                            ->disk('public')
+                            ->directory('team-members')
+                            ->maxSize(2048),
                         TextInput::make('linkedin_url')
                             ->maxLength(255)
                             ->url()

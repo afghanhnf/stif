@@ -26,8 +26,8 @@ export default function LibraryPreviewSection({ akads, locale }) {
             ...item,
             id: dbAkad ? dbAkad.id : item.slug,
             slug: dbAkad ? dbAkad.slug : item.slug,
-            name: dbAkad ? (locale === 'id' && dbAkad.name_id ? dbAkad.name_id : dbAkad.name_en) : item.name,
-            desc: dbAkad ? (locale === 'id' && dbAkad.subtitle_id ? dbAkad.subtitle_id : dbAkad.subtitle_en) : item.desc
+            name: dbAkad ? (locale === 'id' && dbAkad.name_id ? dbAkad.name_id : (dbAkad.name_en || item.name)) : item.name,
+            desc: dbAkad ? (locale === 'id' && dbAkad.subtitle_id ? dbAkad.subtitle_id : (dbAkad.subtitle_en || item.desc)) : item.desc
         };
     });
 
@@ -124,7 +124,8 @@ export default function LibraryPreviewSection({ akads, locale }) {
                                     alignItems: 'center',
                                     gap: 'clamp(8px, 2vw, 16px)',
                                     boxShadow: '0 4px 15px rgba(0,0,0,0.01)',
-                                    transition: 'transform 0.2s'
+                                    transition: 'transform 0.2s',
+                                    minWidth: 0
                                 }}
                                 onMouseOver={e => e.currentTarget.style.transform = 'translateY(-2px)'}
                                 onMouseOut={e => e.currentTarget.style.transform = 'translateY(0)'}
@@ -150,7 +151,7 @@ export default function LibraryPreviewSection({ akads, locale }) {
                                 <div style={{ width: '1px', height: '24px', backgroundColor: 'rgba(0,0,0,0.06)', flexShrink: 0 }}></div>
 
                                 {/* Right Section - Latin name and description */}
-                                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', overflow: 'hidden' }}>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', overflow: 'hidden', minWidth: 0 }}>
                                     <h4 style={{ fontSize: '15px', fontWeight: '600', color: '#131810', margin: 0, whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
                                         {akad.name}
                                     </h4>

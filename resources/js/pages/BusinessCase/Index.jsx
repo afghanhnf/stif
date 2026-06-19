@@ -46,10 +46,13 @@ export default function BusinessCaseIndex({ locale, portfolios, settings }) {
 
     // Normalize portfolios to get images
     const displayItems = portfolios && portfolios.length > 0
-        ? portfolios.map((item) => ({
-            ...item,
-            image: `/images/${item.thumbnail}`,
-        }))
+        ? portfolios.map((item) => {
+            const isUpload = item.thumbnail?.includes('/');
+            return {
+                ...item,
+                image: isUpload ? `/storage/${item.thumbnail}` : `/images/${item.thumbnail}`,
+            };
+        })
         : [];
 
     // Get unique sectors dynamically
