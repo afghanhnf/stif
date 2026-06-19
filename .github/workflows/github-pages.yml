@@ -83,10 +83,7 @@ jobs:
           sleep 5
           php scripts/export-static.php
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-        with:
-          enablement: false
+
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
