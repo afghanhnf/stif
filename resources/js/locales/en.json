@@ -1,0 +1,161 @@
+{
+  "nav": {
+    "who_we_are": "Who We Are",
+    "services": "Services",
+    "sharia_library": "Sharia Library",
+    "insight": "Insight",
+    "contact": "Contact",
+    "business_case": "Business Case",
+    "submit_project": "Submit Project",
+    "language": "Language"
+  },
+  "hero": {
+    "badge": "SHARIA PRIVATE EQUITY",
+    "headline": "Prosper with Purpose",
+    "subheadline": "Capital, executed with amanah.",
+    "cta_primary": "Pitch a project",
+    "cta_secondary": "Business Case",
+    "quran_verse": "\"Be mindful of Allah, and be moderate in seeking a living.\""
+  },
+  "usp": {
+    "title_1": "The First Sharia-Compliant Indonesian Private Equity",
+    "title_2": "Tangible & Impactful Investment",
+    "title_3": "Transparency and Responsibility",
+    "title_4": "Measurable Social Impact"
+  },
+  "values": {
+    "label": "OUR VALUES",
+    "headline": "We build capital with principles.",
+    "description": "We drive growth through asset-backed partnerships, ensuring risk and reward are shared equitably under transparent contracts and meticulous due diligence.",
+    "read_methodology": "Read the methodology",
+    "value_01": "Transparent & Responsible Investing",
+    "value_02": "Sharia Supervisory Expert",
+    "value_03": "Sharia Principle",
+    "value_04": "Asset-Backed"
+  },
+  "library": {
+    "label": "SHARIA LIBRARY",
+    "contracts": "11 contracts",
+    "headline": "The jurisprudence behind the structure",
+    "view_all": "View all akads",
+    "what_is": "What is {{name}}?"
+  },
+  "services": {
+    "label": "OUR SERVICES",
+    "view_all": "All services",
+    "investment": "Investment",
+    "financing": "Financing",
+    "shariah": "Shariah Advisory",
+    "trust_fund": "Trust Fund"
+  },
+  "contact": {
+    "label": "SUBMIT A MANDATE",
+    "headline": "Submit a one-page summary.",
+    "description": "We review every Sharia-eligible submission within 48 hours.",
+    "schedule": "30-minute slot with a principal - Mon to Fri, GMT+7.",
+    "form": {
+      "name": "Your name",
+      "email": "you@firm.com",
+      "phone": "+62 21 1234 567",
+      "project": "Tell us what you are working on…",
+      "submit": "Submit a mandate"
+    }
+  },
+  "services_preview": {
+    "badge": "CORE SERVICES",
+    "headline": "Four Pillars of",
+    "headline_italic": "What We Offer",
+    "explore_all": "Explore all services",
+    "learn_more": "Learn more"
+  },
+  "library_preview": {
+    "badge": "SHARIA LIBRARY · 11 AKAD",
+    "headline": "Eleven Akads,",
+    "headline_italic": "One Standard.",
+    "description": "Every contract we structure draws from these eleven akads with binding fatwa.",
+    "card_badge": "CLASSICAL AKAD",
+    "card_title": "11 contracts",
+    "card_desc": "Each backed by binding fatwa",
+    "browse_all": "Browse the Full Akad Library"
+  },
+  "insight_preview": {
+    "badge": "ARTIKEL · INSIGHT",
+    "headline": "Field Notes from",
+    "headline_italic": "The Desk",
+    "all_articles": "All articles",
+    "read_article": "Read article"
+  },
+  "video_banner": {
+    "badge": "OUR MANIFESTO · 02:48",
+    "headline_italic": "Sharia",
+    "headline": "is not a feature.",
+    "headline_2": "It is the entire product.",
+    "description": "A 3-minute film on why we operate the way we do."
+  },
+  "cta": {
+    "badge": "SUBMIT A MANDATE",
+    "headline": "Ready to pitch your",
+    "headline_italic": "project?",
+    "description": "Submit a one-page summary. We review every Sharia-eligible submission within 48 hours.",
+    "submit": "Submit project",
+    "about": "About Stif"
+  },
+  "footer": {
+    "desc": "Global private-equity house operating wholly under Sharia principles. Headquartered in Jakarta, Indonesia.",
+    "services_title": "Services",
+    "company_title": "Company",
+    "resources_title": "Resources",
+    "about": "About",
+    "business_case": "Business Case",
+    "privacy": "Privacy & Policy",
+    "copyright": "All rights reserved.",
+    "tagline": "The pioneer of Sharia based private equity in Indonesia. Headquartered in Jakarta, with offices in Dubai and Singapore.",
+    "terms": "Terms & Condition",
+    "offices": "Jakarta — Dubai",
+    "hours": "Mon – Fri · 08.00–17.00"
+  },
+  "contact_page": {
+    "hero_badge": "SUBMIT A MANDATE",
+    "hero_title": "Submit Your",
+    "hero_title_italic": "Mandate",
+    "hero_desc": "We review every Sharia-eligible submission within 48 hours. Provide a concise one-page summary or pitch deck outlining your capital requirements, business model, and Sharia structure if any.",
+    "quran_verse_arabic": "اتَّقُوا اللَّهَ وَأَجْمِلُوا فِي الطَّلَبِ",
+    "quran_verse_translation": "\"Be mindful of Allah, and be moderate in seeking a living.\"",
+    "form_title": "Project",
+    "form_title_italic": "Details",
+    "form_desc": "Fill out the form below with your project information. All fields marked with * are required.",
+    "success_msg": "Your mandate has been submitted successfully. We will review it within 48 hours.",
+    "field_name": "Full Name *",
+    "field_email": "Email *",
+    "field_company": "Company",
+    "field_phone": "Phone",
+    "field_project_title": "Project Title",
+    "field_summary": "Executive Summary *",
+    "field_sector": "Sector",
+    "field_ticket_size": "Ticket Size Requested",
+    "placeholder_name": "John Doe",
+    "placeholder_email": "john@company.com",
+    "placeholder_company": "Company name",
+    "placeholder_phone": "+62 xxx xxxx xxxx",
+    "placeholder_project": "e.g. Halal Food Processing Plant Expansion",
+    "placeholder_summary": "Briefly describe your project, business model, and capital requirements...",
+    "placeholder_sector": "e.g. Agriculture, Real Estate",
+    "placeholder_ticket": "e.g. $500k — $2M",
+    "submit_btn": "Submit Mandate",
+    "submitting_btn": "Submitting...",
+    "card_email": "EMAIL",
+    "card_phone": "PHONE",
+    "card_office": "OFFICE",
+    "office_city": "Jakarta, Indonesia",
+    "office_desc": "Headquartered in the heart of Southeast Asia"
+  },
+  "common": {
+    "read_more": "Read more",
+    "view_all": "View all",
+    "back": "Back",
+    "share": "Share",
+    "loading": "Loading...",
+    "min_read": "{{n}} min read",
+    "published": "Published {{date}}"
+  }
+}

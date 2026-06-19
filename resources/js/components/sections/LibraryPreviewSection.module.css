@@ -1,0 +1,109 @@
+.library {
+    padding: var(--space-4xl) 0;
+    background-color: var(--color-cream-100);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: var(--space-3xl);
+}
+
+.headerLeft {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.labelRow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.akadGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.akadCard {
+    background-color: var(--color-white);
+    border-radius: var(--radius-xl);
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 240px;
+    border: 1px solid var(--color-neutral-200);
+    transition: all var(--transition-base);
+}
+
+.akadCard:hover {
+    box-shadow: var(--shadow-md);
+    border-color: var(--color-primary-300);
+    transform: translateY(-2px);
+}
+
+.cardTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.akadNumber {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--color-neutral-400);
+}
+
+.akadArabic {
+    font-size: 24px;
+    color: var(--color-forest-900);
+    direction: rtl;
+    opacity: 0.8;
+}
+
+.cardBottom {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.akadName {
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--color-primary-500);
+}
+
+.akadLink {
+    font-size: 13px;
+    color: var(--color-neutral-500);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    transition: color var(--transition-fast);
+}
+
+.akadCard:hover .akadLink {
+    color: var(--color-primary-500);
+}
+
+@media (max-width: 1024px) {
+    .akadGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-lg);
+    }
+    
+    .akadGrid {
+        grid-template-columns: 1fr;
+    }
+}

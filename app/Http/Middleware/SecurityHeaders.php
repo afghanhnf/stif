@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Http\Middleware;
+
+use Closure;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
+
+class SecurityHeaders
+{
+    /**
+     * Handle an incoming request.
+     *
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     */
+    public function handle(Request $request, Closure $next): Response
+    {
+        $response = $next($request);
+
+        // Don't modify if the response is not a typical HTTP Response (e.g. BinaryFileResponse)
+        if (method_exists($response, 'header')) {
+            $response->header('X-Frame-Options', 'SAMEORIGIN');
+            $response->header('X-Content-Type-Options', 'nosniff');
+            $response->header('X-XSS-Protection', '1; mode=block');
+            $response->header('Strict-Transport-Security', 'max-age=31536000; includeSubDomains');
+            $response->header('Referrer-Policy', 'strict-origin-when-cross-origin');
+            
+            // Allow scripts and styles from trusted domains including the local dev server (Vite)
+            // CSP is temporarily removed because it conflicts with Vite dev server and React inline scripts
+            // $response->header('Content-Security-Policy', "...");
+        }
+
+        return $response;
+    }
+}

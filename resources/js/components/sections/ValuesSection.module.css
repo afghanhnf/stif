@@ -1,0 +1,80 @@
+.values {
+    padding: var(--space-4xl) 0;
+    background-color: var(--color-cream-50);
+}
+
+.valuesGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4xl);
+    align-items: center;
+}
+
+.headline {
+    color: var(--color-forest-900);
+    margin-bottom: var(--space-lg);
+}
+
+.description {
+    color: var(--color-neutral-600);
+    margin-bottom: var(--space-xl);
+}
+
+/* Values Box */
+.valuesListWrapper {
+    background-color: var(--color-forest-900);
+    padding: var(--space-2xl);
+    border-radius: var(--radius-xl);
+}
+
+.valuesBox {
+    display: flex;
+    flex-direction: column;
+}
+
+.valueRow {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.valueRow:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.valueRow:first-child {
+    padding-top: 0;
+}
+
+.valueNumber {
+    font-family: var(--font-family);
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color-primary-400);
+}
+
+.valueText {
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--color-white);
+}
+
+@media (max-width: 1024px) {
+    .valuesGrid {
+        grid-template-columns: 1fr;
+        gap: var(--space-2xl);
+    }
+}
+
+@media (max-width: 640px) {
+    .valuesListWrapper {
+        padding: var(--space-xl);
+    }
+    
+    .valueText {
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,161 @@
+{
+  "nav": {
+    "who_we_are": "Tentang Kami",
+    "services": "Layanan",
+    "sharia_library": "Perpustakaan Syariah",
+    "insight": "Insight",
+    "contact": "Kontak",
+    "business_case": "Kasus Bisnis",
+    "submit_project": "Ajukan Proyek",
+    "language": "Bahasa"
+  },
+  "hero": {
+    "badge": "PRIVATE EQUITY SYARIAH",
+    "headline": "Sejahtera dengan Tujuan",
+    "subheadline": "Modal, dikelola dengan amanah.",
+    "cta_primary": "Ajukan proyek",
+    "cta_secondary": "Kasus Bisnis",
+    "quran_verse": "\"Bertakwalah kepada Allah, dan perbaikilah dalam mencari penghidupan.\""
+  },
+  "usp": {
+    "title_1": "Private Equity Syariah Pertama di Indonesia",
+    "title_2": "Investasi yang Nyata & Berdampak",
+    "title_3": "Transparansi dan Tanggung Jawab",
+    "title_4": "Dampak Sosial yang Terukur"
+  },
+  "values": {
+    "label": "NILAI KAMI",
+    "headline": "Kami membangun modal dengan prinsip.",
+    "description": "Kami mendorong pertumbuhan melalui kemitraan berbasis aset, memastikan risiko dan keuntungan dibagi secara adil di bawah kontrak yang transparan dan uji tuntas yang teliti.",
+    "read_methodology": "Baca metodologinya",
+    "value_01": "Investasi yang Transparan & Bertanggung Jawab",
+    "value_02": "Ahli Pengawas Syariah",
+    "value_03": "Prinsip Syariah",
+    "value_04": "Berbasis Aset"
+  },
+  "library": {
+    "label": "PERPUSTAKAAN SYARIAH",
+    "contracts": "11 akad",
+    "headline": "Landasan fiqih di balik struktur",
+    "view_all": "Lihat semua akad",
+    "what_is": "Apa itu {{name}}?"
+  },
+  "services": {
+    "label": "LAYANAN KAMI",
+    "view_all": "Semua layanan",
+    "investment": "Investasi",
+    "financing": "Pembiayaan",
+    "shariah": "Konsultasi Syariah",
+    "trust_fund": "Dana Amanah"
+  },
+  "contact": {
+    "label": "AJUKAN MANDAT",
+    "headline": "Kirimkan ringkasan satu halaman.",
+    "description": "Kami meninjau setiap pengajuan yang memenuhi kriteria Syariah dalam 48 jam.",
+    "schedule": "Slot 30 menit bersama principal - Senin hingga Jumat, GMT+7.",
+    "form": {
+      "name": "Nama Anda",
+      "email": "anda@perusahaan.com",
+      "phone": "+62 21 1234 567",
+      "project": "Ceritakan apa yang sedang Anda kerjakan…",
+      "submit": "Ajukan mandat"
+    }
+  },
+  "services_preview": {
+    "badge": "LAYANAN UTAMA",
+    "headline": "Empat Pilar dari",
+    "headline_italic": "Apa yang Kami Tawarkan",
+    "explore_all": "Jelajahi semua layanan",
+    "learn_more": "Pelajari lebih lanjut"
+  },
+  "library_preview": {
+    "badge": "PERPUSTAKAAN SYARIAH · 11 AKAD",
+    "headline": "Sebelas Akad,",
+    "headline_italic": "Satu Standar.",
+    "description": "Setiap kontrak yang kami buat bersumber dari sebelas akad ini dengan fatwa yang mengikat.",
+    "card_badge": "AKAD KLASIK",
+    "card_title": "11 kontrak",
+    "card_desc": "Masing-masing didukung oleh fatwa yang mengikat",
+    "browse_all": "Telusuri Perpustakaan Akad Penuh"
+  },
+  "insight_preview": {
+    "badge": "ARTIKEL · WAWASAN",
+    "headline": "Catatan Lapangan dari",
+    "headline_italic": "Meja Kami",
+    "all_articles": "Semua artikel",
+    "read_article": "Baca artikel"
+  },
+  "video_banner": {
+    "badge": "MANIFESTO KAMI · 02:48",
+    "headline_italic": "Syariah",
+    "headline": "bukanlah sebuah fitur.",
+    "headline_2": "Itu adalah seluruh produk kami.",
+    "description": "Film 3 menit tentang mengapa kami beroperasi dengan cara ini."
+  },
+  "cta": {
+    "badge": "AJUKAN MANDAT",
+    "headline": "Siap mengajukan",
+    "headline_italic": "proyek Anda?",
+    "description": "Kirimkan ringkasan satu halaman. Kami meninjau setiap pengajuan yang memenuhi syarat Syariah dalam waktu 48 jam.",
+    "submit": "Ajukan proyek",
+    "about": "Tentang Stif"
+  },
+  "footer": {
+    "desc": "Perusahaan private equity global yang beroperasi sepenuhnya di bawah prinsip Syariah. Berkantor pusat di Jakarta, Indonesia.",
+    "services_title": "Layanan",
+    "company_title": "Perusahaan",
+    "resources_title": "Sumber Daya",
+    "about": "Tentang Kami",
+    "business_case": "Kasus Bisnis",
+    "privacy": "Kebijakan Privasi",
+    "copyright": "Hak cipta dilindungi.",
+    "tagline": "Pelopor private equity berbasis Syariah di Indonesia. Berkantor pusat di Jakarta, dengan kantor di Dubai dan Singapura.",
+    "terms": "Syarat & Ketentuan",
+    "offices": "Jakarta — Dubai",
+    "hours": "Sen – Jum · 08.00–17.00"
+  },
+  "contact_page": {
+    "hero_badge": "AJUKAN MANDAT",
+    "hero_title": "Ajukan",
+    "hero_title_italic": "Mandat Anda",
+    "hero_desc": "Kami meninjau setiap pengajuan yang memenuhi syarat Syariah dalam waktu 48 jam. Berikan ringkasan satu halaman atau pitch deck yang menjelaskan kebutuhan modal Anda, model bisnis, dan struktur Syariah jika ada.",
+    "quran_verse_arabic": "اتَّقُوا اللَّهَ وَأَجْمِلُوا فِي الطَّلَبِ",
+    "quran_verse_translation": "\"Bertakwalah kepada Allah, dan perbaikilah dalam mencari penghidupan.\"",
+    "form_title": "Detail",
+    "form_title_italic": "Proyek",
+    "form_desc": "Isi formulir di bawah ini dengan informasi proyek Anda. Semua kolom bertanda * wajib diisi.",
+    "success_msg": "Mandat Anda telah berhasil diajukan. Kami akan meninjaunya dalam waktu 48 jam.",
+    "field_name": "Nama Lengkap *",
+    "field_email": "Email *",
+    "field_company": "Perusahaan",
+    "field_phone": "Telepon",
+    "field_project_title": "Judul Proyek",
+    "field_summary": "Ringkasan Eksekutif *",
+    "field_sector": "Sektor",
+    "field_ticket_size": "Kebutuhan Dana",
+    "placeholder_name": "John Doe",
+    "placeholder_email": "john@perusahaan.com",
+    "placeholder_company": "Nama perusahaan",
+    "placeholder_phone": "+62 xxx xxxx xxxx",
+    "placeholder_project": "Misal: Ekspansi Pabrik Pengolahan Makanan Halal",
+    "placeholder_summary": "Jelaskan secara singkat proyek, model bisnis, dan kebutuhan modal Anda...",
+    "placeholder_sector": "Misal: Pertanian, Real Estat",
+    "placeholder_ticket": "Misal: $500rb — $2Jt",
+    "submit_btn": "Ajukan Mandat",
+    "submitting_btn": "Mengajukan...",
+    "card_email": "EMAIL",
+    "card_phone": "TELEPON",
+    "card_office": "KANTOR",
+    "office_city": "Jakarta, Indonesia",
+    "office_desc": "Berkantor pusat di jantung Asia Tenggara"
+  },
+  "common": {
+    "read_more": "Selengkapnya",
+    "view_all": "Lihat semua",
+    "back": "Kembali",
+    "share": "Bagikan",
+    "loading": "Memuat...",
+    "min_read": "{{n}} menit baca",
+    "published": "Diterbitkan {{date}}"
+  }
+}
