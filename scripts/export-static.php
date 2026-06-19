@@ -21,6 +21,18 @@ removeDirectory($outputDir);
 mkdir($outputDir, 0777, true);
 
 copyDirectory(__DIR__ . '/../public', $outputDir);
+
+// Export storage directory contents
+@mkdir($outputDir . '/storage', 0755, true);
+if (is_dir(__DIR__ . '/../storage/app/public')) {
+    copyDirectory(__DIR__ . '/../storage/app/public', $outputDir . '/storage');
+}
+// Fallback: seeders put filenames in DB but files are physically in public/images.
+// The frontend expects them in /storage/. We copy them over so they don't 404.
+if (is_dir(__DIR__ . '/../public/images')) {
+    copyDirectory(__DIR__ . '/../public/images', $outputDir . '/storage');
+}
+
 rewriteStaticAssetReferences($outputDir, $staticBasePath);
 file_put_contents($outputDir . '/.nojekyll', '');
 
