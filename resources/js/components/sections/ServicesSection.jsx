@@ -105,7 +105,7 @@ export default function ServicesSection({ services, locale }) {
                             
                             // Map icon
                             let sIcon = <path d="M12 2L2 7l10 5 10-5-10-5z" />;
-                            if (service.slug === 'shariah' || service.slug === 'sharia') sIcon = iconMap['shield'];
+                            if (service.slug === 'shariah' || service.slug === 'sharia' || service.slug === 'sharia-foundation') sIcon = iconMap['shield'];
                             else if (service.slug === 'trust-fund') sIcon = iconMap['home'];
                             else if (service.slug === 'investment') sIcon = iconMap['trend-up'];
                             else if (service.slug === 'financing') sIcon = iconMap['credit-card'];

@@ -34,6 +34,9 @@ const serviceIcons = {
     sharia: (
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
     ),
+    'sharia-foundation': (
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+    ),
     'trust-fund': (
         <>
             <path d="M3 10.5 12 3l9 7.5" />
@@ -75,6 +78,12 @@ const copy = {
                 desc: 'Every investment is structured under rigorous Sharia principles that ensure alignment with Islamic values in any capital deployment.',
             },
             sharia: {
+                num: '01',
+                title: 'Sharia Foundation',
+                badge: 'Compliance',
+                desc: 'Every investment is structured under rigorous Sharia principles that ensure alignment with Islamic values in any capital deployment.',
+            },
+            'sharia-foundation': {
                 num: '01',
                 title: 'Sharia Foundation',
                 badge: 'Compliance',
@@ -125,6 +134,12 @@ const copy = {
                 desc: 'Setiap investasi disusun berdasarkan prinsip Syariah yang ketat untuk memastikan keselarasan dengan nilai Islam dalam setiap penempatan modal.',
             },
             sharia: {
+                num: '01',
+                title: 'Fondasi Syariah',
+                badge: 'Kepatuhan',
+                desc: 'Setiap investasi disusun berdasarkan prinsip Syariah yang ketat untuk memastikan keselarasan dengan nilai Islam dalam setiap penempatan modal.',
+            },
+            'sharia-foundation': {
                 num: '01',
                 title: 'Fondasi Syariah',
                 badge: 'Kepatuhan',
