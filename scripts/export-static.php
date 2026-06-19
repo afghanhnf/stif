@@ -138,6 +138,8 @@ document.addEventListener('click', function (event) {
         }
 
         event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
         window.location.href = withBasePath(nextPath) + window.location.search + window.location.hash;
         return;
     }
@@ -179,6 +181,8 @@ function rewriteRootReferences(string $content, string $staticBasePath): string
         return $content;
     }
 
+    $escapedBasePath = str_replace('/', '\/', $staticBasePath);
+
     $replacements = [
         'href="/' => 'href="' . $staticBasePath . '/',
         'src="/' => 'src="' . $staticBasePath . '/',
@@ -190,6 +194,8 @@ function rewriteRootReferences(string $content, string $staticBasePath): string
         '"/storage/' => '"' . $staticBasePath . '/storage/',
         "'/storage/" => "'" . $staticBasePath . '/storage/',
         '`/storage/' => '`' . $staticBasePath . '/storage/',
+        '"\/images\/' => '"' . $escapedBasePath . '\/images\/',
+        '"\/storage\/' => '"' . $escapedBasePath . '\/storage\/',
     ];
 
     $content = strtr($content, $replacements);
@@ -198,6 +204,11 @@ function rewriteRootReferences(string $content, string $staticBasePath): string
     $doublePrefix = $staticBasePath . $staticBasePath . '/';
     $singlePrefix = $staticBasePath . '/';
     $content = str_replace($doublePrefix, $singlePrefix, $content);
+
+    // Fix double-prefixing for escaped paths
+    $doubleEscapedPrefix = $escapedBasePath . $escapedBasePath . '\/';
+    $singleEscapedPrefix = $escapedBasePath . '\/';
+    $content = str_replace($doubleEscapedPrefix, $singleEscapedPrefix, $content);
 
     return $content;
 }
