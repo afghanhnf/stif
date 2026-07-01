@@ -139,7 +139,7 @@ export default function Footer({ locale, settings }) {
 
                 {/* Bottom */}
                 <div className="flex-row-responsive" style={{ justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '24px', fontSize: '13px', gap: '16px' }}>
-                    <div>© {new Date().getFullYear()} Stif Capital. {t('footer.copyright')}</div>
+                    <div>© {new Date().getFullYear()} STIF Capital. {t('footer.copyright')}</div>
 
                     {/* Social Media Icons */}
                     <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>

@@ -46,9 +46,9 @@ class PortfolioSeeder extends Seeder
         ];
 
         foreach ($portfolios as $portfolio) {
-            $genericContentEn = '<p class="intro">This business case outlines our structured approach to <strong>' . $portfolio['title_en'] . '</strong>.</p><p>By leveraging the ' . $portfolio['akad_type'] . ' structure, we provided a scalable capital solution that aligned with the operational realities of the ' . $portfolio['sector'] . ' sector.</p><h2>Impact & Results</h2><ul><li>Capital Deployed: ' . $portfolio['ticket_size'] . '</li><li>Structure Used: ' . $portfolio['akad_type'] . '</li><li>Outcome: Enhanced liquidity and sustainable growth.</li></ul>';
+            $genericContentEn = '<p class="intro">This business case outlines our structured approach to <strong>' . $portfolio['title_en'] . '</strong>.</p><p>By leveraging the ' . $portfolio['akad_type'] . ' structure, we provided a scalable capital solution that aligned with the operational realities of the ' . $portfolio['sector'] . ' sector.</p><h2>Impact & Results</h2><ul><li>Structure Used: ' . $portfolio['akad_type'] . '</li><li>Outcome: Enhanced liquidity and sustainable growth.</li></ul>';
             
-            $genericContentId = '<p class="intro">Studi kasus bisnis ini menguraikan pendekatan terstruktur kami terhadap <strong>' . $portfolio['title_id'] . '</strong>.</p><p>Dengan memanfaatkan akad ' . $portfolio['akad_type'] . ', kami menyediakan solusi modal terukur yang selaras dengan realitas operasional di sektor ' . $portfolio['sector'] . '.</p><h2>Dampak & Hasil</h2><ul><li>Modal Disalurkan: ' . $portfolio['ticket_size'] . '</li><li>Akad Digunakan: ' . $portfolio['akad_type'] . '</li><li>Hasil: Peningkatan likuiditas dan pertumbuhan berkelanjutan.</li></ul>';
+            $genericContentId = '<p class="intro">Studi kasus bisnis ini menguraikan pendekatan terstruktur kami terhadap <strong>' . $portfolio['title_id'] . '</strong>.</p><p>Dengan memanfaatkan akad ' . $portfolio['akad_type'] . ', kami menyediakan solusi modal terukur yang selaras dengan realitas operasional di sektor ' . $portfolio['sector'] . '.</p><h2>Dampak & Hasil</h2><ul><li>Akad Digunakan: ' . $portfolio['akad_type'] . '</li><li>Hasil: Peningkatan likuiditas dan pertumbuhan berkelanjutan.</li></ul>';
 
             Portfolio::updateOrCreate(
                 ['slug' => $portfolio['slug']],

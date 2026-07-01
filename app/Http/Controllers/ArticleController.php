@@ -11,7 +11,9 @@ class ArticleController extends Controller
     {
         return Inertia::render('Insight/Index', [
             'locale'   => app()->getLocale(),
-            'articles' => Article::published()->paginate(9),
+            'articles' => Article::published()
+                ->where('slug', '!=', 'inside-our-sharia-board-a-quarterly-fatwa-cycle')
+                ->paginate(9),
         ]);
     }
 
@@ -19,6 +21,7 @@ class ArticleController extends Controller
     {
         $article  = Article::where('slug', $slug)->where('is_published', true)->firstOrFail();
         $related  = Article::published()
+            ->where('slug', '!=', 'inside-our-sharia-board-a-quarterly-fatwa-cycle')
             ->where('id', '!=', $article->id)
             ->take(3)->get();
 

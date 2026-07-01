@@ -134,6 +134,27 @@ export default function BusinessCaseIndex({ locale, portfolios, settings }) {
                                             {/* Gradient Overlay for Legibility */}
                                             <div className="portfolio-card__overlay" />
 
+                                            {/* Top Right Status Badge - Hidden as requested */}
+                                            <div style={{
+                                                position: 'absolute',
+                                                top: '24px',
+                                                right: '24px',
+                                                backgroundColor: '#FFFFFF',
+                                                borderRadius: '999px',
+                                                padding: '6px 16px',
+                                                color: '#131810',
+                                                fontSize: '11px',
+                                                fontWeight: 'bold',
+                                                letterSpacing: '0.05em',
+                                                zIndex: 2,
+                                                display: 'none',
+                                                alignItems: 'center',
+                                                gap: '6px'
+                                            }}>
+                                                <span style={{ width: '6px', height: '6px', backgroundColor: '#6B6D0F', borderRadius: '50%' }}></span>
+                                                {text.active}
+                                            </div>
+
                                             {/* Top Row: Sector Badge + Arrow */}
                                             <div className="portfolio-card__top">
                                                 <span className="portfolio-card__sector-badge">

@@ -247,7 +247,8 @@ export default function WhoWeAre({ locale, team, tagline, settings, profile }) {
                         </section>
                     </FadeIn>
 
-                    {team && team.length > 0 && (
+                    {/* Team section temporarily hidden as requested */}
+                    {false && team && team.length > 0 && (
                         <FadeIn direction="up">
                             <section className="who-team">
                                 <div>

@@ -106,7 +106,7 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                             {/* Top Badges */}
                             <div className="portfolio-banner__top">
                                 <span className="portfolio-banner__sector">{portfolio.sector}</span>
-                                <span className="portfolio-banner__status">{text.active}</span>
+                                <span className="portfolio-banner__status" style={{ display: 'none' }}>{text.active}</span>
                             </div>
 
                             {/* Bottom Content */}

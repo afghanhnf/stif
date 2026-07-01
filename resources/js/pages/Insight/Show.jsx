@@ -193,7 +193,7 @@ export default function InsightShow({ locale, article, related, settings }) {
                         <FadeIn direction="up">
                             <div
                                 className="insight-show__body"
-                                dangerouslySetInnerHTML={{ __html: content }}
+                                dangerouslySetInnerHTML={{ __html: content || '' }}
                             />
                         </FadeIn>
 

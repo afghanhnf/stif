@@ -52,8 +52,8 @@ $fallbackArticles = [
     [
         'slug' => 'stif-capital-annual-report-2025',
         'category' => 'ANNUAL REPORT',
-        'title_en' => 'Stif Capital Annual Report 2025',
-        'title_id' => 'Laporan Tahunan Stif Capital 2025',
+        'title_en' => 'STIF Capital Annual Report 2025',
+        'title_id' => 'Laporan Tahunan STIF Capital 2025',
         'excerpt_en' => 'Portfolio performance, governance updates, and measured impact across our mandates.',
         'excerpt_id' => 'Kinerja portofolio, pembaruan tata kelola, dan dampak terukur di seluruh mandat kami.',
         'author' => 'STIF Capital',
@@ -65,8 +65,8 @@ $fallbackArticles = [
     [
         'slug' => 'stif-capital-annual-report-2024',
         'category' => 'ANNUAL REPORT',
-        'title_en' => 'Stif Capital Annual Report 2024',
-        'title_id' => 'Laporan Tahunan Stif Capital 2024',
+        'title_en' => 'STIF Capital Annual Report 2024',
+        'title_id' => 'Laporan Tahunan STIF Capital 2024',
         'excerpt_en' => 'A year of disciplined capital allocation, transparent reporting, and Sharia-first execution.',
         'excerpt_id' => 'Setahun alokasi modal yang disiplin, pelaporan transparan, dan eksekusi yang mendahulukan Syariah.',
         'author' => 'STIF Capital',
