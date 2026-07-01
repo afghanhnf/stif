@@ -21,7 +21,9 @@ class HomeController extends Controller
             'locale'   => $locale,
             'akads'    => Akad::published()->take(6)->get(),
             'services' => Service::published()->get(),
-            'articles' => Article::published()->take(3)->get(),
+            'articles' => Article::published()
+                ->where('slug', '!=', 'inside-our-sharia-board-a-quarterly-fatwa-cycle')
+                ->take(3)->get(),
             'portfolios' => Portfolio::published()->take(3)->get(),
             'heroSection' => HeroSection::where('is_active', true)->get(),
             'profile' => Profile::where('is_active', true)->first(),

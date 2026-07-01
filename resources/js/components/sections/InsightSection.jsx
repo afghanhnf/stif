@@ -37,9 +37,9 @@ export default function InsightSection({ articles, locale }) {
 
     const filteredArticles = articles ? articles.filter(item => item.slug !== 'inside-our-sharia-board-a-quarterly-fatwa-cycle') : [];
 
-    const displayItems = filteredArticles.length >= 3
+    const displayItems = filteredArticles.length > 0
         ? filteredArticles.slice(0, 3).map((item, idx) => {
-            const imagePath = item.featured_image ? (item.featured_image.startsWith('/') ? item.featured_image : `/storage/${item.featured_image}`) : dummyArticles[idx].image;
+            const imagePath = item.featured_image ? (item.featured_image.startsWith('/') ? item.featured_image : `/storage/${item.featured_image}`) : (dummyArticles[idx] ? dummyArticles[idx].image : '/images/article-buildings.png');
             return {
                 id: item.id,
                 slug: item.slug,
