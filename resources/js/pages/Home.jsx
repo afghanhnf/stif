@@ -10,7 +10,6 @@ import WhoWeAreTeaserSection from '@/components/sections/WhoWeAreTeaserSection';
 import ServicesSection from '@/components/sections/ServicesSection';
 import ValuesSection from '@/components/sections/ValuesSection';
 import BusinessCaseSection from '@/components/sections/BusinessCaseSection';
-import VideoBannerSection from '@/components/sections/VideoBannerSection';
 import LibraryPreviewSection from '@/components/sections/LibraryPreviewSection';
 import InsightSection from '@/components/sections/InsightSection';
 import CTASection from '@/components/sections/CTASection';
@@ -43,10 +42,6 @@ export default function Home({ locale, akads, services, articles, portfolios, se
 
             <FadeIn delay={100} direction="up">
                 <BusinessCaseSection portfolios={portfolios} locale={locale} />
-            </FadeIn>
-
-            <FadeIn delay={100} direction="up">
-                <VideoBannerSection />
             </FadeIn>
 
             <FadeIn delay={100} direction="up">

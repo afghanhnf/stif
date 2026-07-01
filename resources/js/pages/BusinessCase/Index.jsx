@@ -150,10 +150,6 @@ export default function BusinessCaseIndex({ locale, portfolios, settings }) {
                                                     {item.deal_type || item.akad_type}
                                                 </span>
                                                 <h3>{caseTitle}</h3>
-                                                <div className="portfolio-card__footer">
-                                                    <span>SIZE</span>
-                                                    <strong>{item.ticket_size}</strong>
-                                                </div>
                                             </div>
                                         </Link>
                                     );
@@ -379,7 +375,7 @@ export default function BusinessCaseIndex({ locale, portfolios, settings }) {
                     font-weight: 300;
                     color: #ffffff;
                     line-height: 1.25;
-                    margin: 0 0 18px 0;
+                    margin: 0;
                 }
                 
                 .portfolio-card__footer {

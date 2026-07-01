@@ -225,14 +225,16 @@ const cleanSlug = (slug) => {
 export default function ShariahLibraryShow({ locale, akad, prev, next, akads, settings }) {
     const { t } = useTranslation();
     const prefix = locale === 'id' ? '/id' : '';
-    const name = locale === 'id' && akad.name_id ? akad.name_id : akad.name_en;
+    const normalizedSlug = cleanSlug(akad.slug);
+    const defaultAkad = defaultAkads.find(item => item.slug === normalizedSlug) || {};
+
+    const name = locale === 'id' ? (akad.name_id || defaultAkad.titleId || defaultAkad.name) : (akad.name_en || defaultAkad.name);
     
     // Normalize definitions
-    const definition = locale === 'id' && akad.definition_id ? akad.definition_id : akad.definition_en;
+    const definition = locale === 'id' ? (akad.definition_id || defaultAkad.descId) : (akad.definition_en || defaultAkad.desc);
     const example = locale === 'id' && akad.example_id ? akad.example_id : akad.example_en;
     const sponsorBenefits = locale === 'id' && akad.sponsor_benefits_id ? akad.sponsor_benefits_id : akad.sponsor_benefits_en;
-
-    const normalizedSlug = cleanSlug(akad.slug);
+    const arabicName = akad.arabic_name && !akad.arabic_name.includes('Ù') ? akad.arabic_name : defaultAkad.arabic;
     
     // Get custom example title and stif application description
     const currentExampleTitle = exampleTitles[locale]?.[normalizedSlug] || exampleTitles.en[normalizedSlug] || (locale === 'id' ? 'Struktur Contoh' : 'Structure Example');
@@ -278,7 +280,7 @@ export default function ShariahLibraryShow({ locale, akad, prev, next, akads, se
                             <div className="akad-side-card">
                                 <div className="akad-calligraphy-container">
                                     <div className="akad-calligraphy" lang="ar" dir="rtl">
-                                        {akad.arabic_name}
+                                        {arabicName}
                                     </div>
                                 </div>
                                 <div className="akad-side-meta">

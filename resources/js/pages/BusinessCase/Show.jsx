@@ -136,61 +136,10 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                                 </div>
                             </div>
 
-                            {/* Right 2x2 Fact Grid Column */}
-                            <div className="portfolio-stats-sidebar">
-                                
-                                {/* Card 1: Ticket size */}
-                                <div className="fact-card">
-                                    <div className="fact-card__header">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#718844" strokeWidth="2.0" strokeLinecap="round" strokeLinejoin="round">
-                                            <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                                            <polyline points="17 6 23 6 23 12" />
-                                        </svg>
-                                        <span>{text.ticketSize}</span>
-                                    </div>
-                                    <strong>{portfolio.ticket_size}</strong>
-                                </div>
-
-                                {/* Card 2: Instrument */}
-                                <div className="fact-card">
-                                    <div className="fact-card__header">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#718844" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                        </svg>
-                                        <span>{text.instrument}</span>
-                                    </div>
-                                    <strong>{portfolio.deal_type || portfolio.akad_type}</strong>
-                                </div>
-
-                                {/* Card 3: Tenor */}
-                                <div className="fact-card">
-                                    <div className="fact-card__header">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#718844" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-                                            <line x1="16" y1="2" x2="16" y2="6" />
-                                            <line x1="8" y1="2" x2="8" y2="6" />
-                                            <line x1="3" y1="10" x2="21" y2="10" />
-                                        </svg>
-                                        <span>{text.tenor}</span>
-                                    </div>
-                                    <strong>{portfolio.tenor}</strong>
-                                </div>
-
-                                {/* Card 4: Expected return */}
-                                <div className="fact-card">
-                                    <div className="fact-card__header">
-                                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#718844" strokeWidth="2.0" strokeLinecap="round" strokeLinejoin="round">
-                                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                                            <circle cx="9" cy="7" r="4" />
-                                            <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                                            <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                                        </svg>
-                                        <span>{text.expectedReturn}</span>
-                                    </div>
-                                    <strong>{portfolio.return_rate}</strong>
-                                </div>
-
-                            </div>
+                            {/* Right 2x2 Fact Grid Column (HIDDEN PER REQUEST) */}
+                            {/* <div className="portfolio-stats-sidebar">
+                                ...
+                            </div> */}
 
                         </div>
                     </FadeIn>
@@ -227,10 +176,6 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                                                         {item.deal_type || item.akad_type}
                                                     </span>
                                                     <h3>{caseTitle}</h3>
-                                                    <div className="portfolio-card__footer">
-                                                        <span>SIZE</span>
-                                                        <strong>{item.ticket_size}</strong>
-                                                    </div>
                                                 </div>
                                             </Link>
                                         );
@@ -363,8 +308,7 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                 
                 .portfolio-content-row {
                     display: grid;
-                    grid-template-columns: 1.8fr 1.2fr;
-                    gap: 24px;
+                    grid-template-columns: 1fr;
                     margin-bottom: 64px;
                     align-items: start;
                 }
@@ -395,6 +339,7 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                     font-size: 16px;
                     line-height: 1.75;
                     margin: 0;
+                    text-align: justify;
                 }
                 
                 .portfolio-main-divider {
@@ -421,6 +366,7 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                 
                 .rich-content p {
                     margin-bottom: 16px;
+                    text-align: justify;
                 }
                 
                 .portfolio-stats-sidebar {
@@ -571,7 +517,7 @@ export default function BusinessCaseShow({ locale, portfolio, related, settings 
                     font-weight: 300;
                     color: #ffffff;
                     line-height: 1.25;
-                    margin: 0 0 18px 0;
+                    margin: 0;
                 }
                 
                 .portfolio-card__footer {

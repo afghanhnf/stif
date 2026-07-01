@@ -1,0 +1,1 @@
+<?php require 'vendor/autoload.php'; \ = require_once 'bootstrap/app.php'; \ = \->make(Illuminate\Contracts\Console\Kernel::class); \->bootstrap(); \ = App\Models\Portfolio::all(); foreach(\ as \) { echo \->id . ' - ' . \->slug . PHP_EOL; }

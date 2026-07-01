@@ -175,27 +175,11 @@ export default function BusinessCaseSection({ portfolios, locale }) {
                                     fontSize: '20px',
                                     fontWeight: 'bold',
                                     color: '#FFFFFF',
-                                    margin: '0 0 24px 0',
+                                    margin: '0',
                                     lineHeight: '1.3'
                                 }}>
                                     {item.title}
                                 </h3>
-
-                                {/* Subtle Divider */}
-                                <div style={{
-                                    borderTop: '1px solid rgba(255,255,255,0.12)',
-                                    paddingTop: '12px',
-                                    display: 'flex',
-                                    justifyContent: 'space-between',
-                                    alignItems: 'center'
-                                }}>
-                                    <span style={{ fontSize: '11px', color: 'rgba(255,255,255,0.5)', letterSpacing: '0.05em' }}>
-                                        SIZE
-                                    </span>
-                                    <span style={{ fontSize: '14px', fontWeight: 'bold', color: '#FFFFFF' }}>
-                                        {item.size}
-                                    </span>
-                                </div>
                             </div>
                         </Link>
                     ))}

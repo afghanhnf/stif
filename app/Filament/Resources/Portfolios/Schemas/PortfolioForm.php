@@ -46,16 +46,20 @@ class PortfolioForm
                             }),
                         TextInput::make('akad_type')
                             ->maxLength(255)
-                            ->label('Akad Type (e.g. Salam)'),
+                            ->label('Akad Type (e.g. Salam)')
+                            ->hidden(),
                         TextInput::make('ticket_size')
                             ->maxLength(255)
-                            ->label('Ticket Size (e.g. USD 1B)'),
+                            ->label('Ticket Size (e.g. USD 1B)')
+                            ->hidden(),
                         TextInput::make('return_rate')
                             ->maxLength(255)
-                            ->label('Expected Return (e.g. ~18% p.a.)'),
+                            ->label('Expected Return (e.g. ~18% p.a.)')
+                            ->hidden(),
                         TextInput::make('tenor')
                             ->maxLength(255)
-                            ->label('Tenor (e.g. 4 Months)'),
+                            ->label('Tenor (e.g. 4 Months)')
+                            ->hidden(),
                         FileUpload::make('thumbnail')
                             ->image()
                             ->directory('portfolios')

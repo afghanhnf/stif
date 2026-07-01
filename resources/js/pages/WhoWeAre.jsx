@@ -74,7 +74,7 @@ const copy = {
         ctaTitle: ['Build the next mandate', 'with a team that', 'shares your standard.'],
         ctaText: 'Connect with us to explore opportunities to build a prosper and resilient future.',
         contact: 'Contact the firm',
-        portfolio: 'See portfolio',
+        portfolio: 'See Business Case',
         teamLabel: 'Leadership',
         teamTitle: 'The people behind the mandate.',
         emptyTeam: "Currently we don't have team members to display.",
@@ -105,17 +105,14 @@ const copy = {
             ['I', 'Integritas', 'Memastikan keselarasan utuh antara ucapan, kontrak, dan setiap pelaksanaan.'],
             ['F', 'Tanggung Jawab Sosial', 'Memastikan tindakan kami mendorong dampak sosial positif bersama pertumbuhan finansial.'],
         ],
-        manifestoLabel: 'Manifesto Kami - 02:48',
-        manifestoTitle: ['Syariah', 'bukan sekadar fitur.', 'Syariah adalah keseluruhan produk.'],
-        manifestoText: 'Film tiga menit tentang alasan kami beroperasi dengan cara ini.',
         ctaLabel: 'Bekerja Bersama Kami',
         ctaTitle: ['Bangun mandat berikutnya', 'bersama tim yang', 'berbagi standar Anda.'],
         ctaText: 'Terhubung dengan kami untuk menjajaki peluang membangun masa depan yang makmur dan tangguh.',
-        contact: 'Hubungi perusahaan',
-        portfolio: 'Lihat portfolio',
+        contact: 'Hubungi kami',
+        businessCase: 'Lihat Business Case',
         teamLabel: 'Kepemimpinan',
         teamTitle: 'Orang-orang di balik mandat.',
-        emptyTeam: 'Saat ini belum ada anggota tim untuk ditampilkan.',
+        emptyTeam: "Saat ini kami belum memiliki anggota tim untuk ditampilkan.",
     },
 };
 
@@ -223,23 +220,7 @@ export default function WhoWeAre({ locale, team, tagline, settings, profile }) {
                         </section>
                     </FadeIn>
 
-                    <FadeIn direction="up">
-                        <section className="who-media-banner">
-                            <img src="/images/who-we-are-manifesto.jpg" alt="" loading="lazy" decoding="async" />
-                            <div className="who-media-banner__overlay" />
-                            <span className="who-media-banner__label">{text.manifestoLabel}</span>
-                            <div className="who-media-banner__copy">
-                                <h2>
-                                    <em>{text.manifestoTitle[0]}</em> {text.manifestoTitle[1]}<br />
-                                    {text.manifestoTitle[2]}
-                                </h2>
-                                <p>{text.manifestoText}</p>
-                            </div>
-                            <button className="who-play-button" aria-label="Play manifesto video">
-                                <PlayIcon />
-                            </button>
-                        </section>
-                    </FadeIn>
+
 
                     <FadeIn direction="up">
                         <section className="who-cta">

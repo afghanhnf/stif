@@ -222,7 +222,7 @@ export default function Header({ locale, settings }) {
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" style={{ position: 'absolute', left: '24px', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-neutral-400)' }}><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
                             <input
                                 type="text"
-                                placeholder={locale === 'id' ? 'Cari layanan, artikel, portofolio...' : 'Search services, insights, portfolios...'}
+                                placeholder={locale === 'id' ? 'Cari layanan, artikel, business case...' : 'Search services, insights, business cases...'}
                                 autoFocus
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}

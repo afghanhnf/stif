@@ -158,7 +158,8 @@ function articleImage(article, fallback) {
 }
 
 function normalizeArticles(articles, locale) {
-    const rows = articles?.data?.length ? articles.data : fallbackArticles;
+    let rows = articles?.data?.length ? articles.data : fallbackArticles;
+    rows = rows.filter(item => item.slug !== 'inside-our-sharia-board-a-quarterly-fatwa-cycle');
 
     return rows.map((article, index) => {
         const fallback = fallbackArticles[index % fallbackArticles.length];
@@ -272,10 +273,6 @@ export default function InsightIndex({ locale, articles, settings }) {
                                         <p>{featured.excerpt}</p>
                                         <div>
                                             {featured.author}
-                                            <span />
-                                            {featured.date}
-                                            <span />
-                                            {featured.readTime}
                                         </div>
                                     </div>
                                 </Link>
@@ -290,11 +287,7 @@ export default function InsightIndex({ locale, articles, settings }) {
                                                 <span>{article.category}</span>
                                             </div>
                                             <div className="insight-card__copy">
-                                                <div className="insight-meta">
-                                                    {article.date}
-                                                    <span />
-                                                    {article.readTime}
-                                                </div>
+                                                {/* Meta Hidden Per Request */}
                                                 <h2>{article.title}</h2>
                                                 <span className="insight-link">
                                                     {text.readMore}

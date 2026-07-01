@@ -35,8 +35,10 @@ export default function InsightSection({ articles, locale }) {
         }
     ];
 
-    const displayItems = articles && articles.length >= 3
-        ? articles.slice(0, 3).map((item, idx) => {
+    const filteredArticles = articles ? articles.filter(item => item.slug !== 'inside-our-sharia-board-a-quarterly-fatwa-cycle') : [];
+
+    const displayItems = filteredArticles.length >= 3
+        ? filteredArticles.slice(0, 3).map((item, idx) => {
             const imagePath = item.featured_image ? (item.featured_image.startsWith('/') ? item.featured_image : `/storage/${item.featured_image}`) : dummyArticles[idx].image;
             return {
                 id: item.id,
@@ -135,9 +137,7 @@ export default function InsightSection({ articles, locale }) {
 
                             {/* Bottom Content */}
                             <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flex: 1, boxSizing: 'border-box' }}>
-                                <div style={{ fontSize: '12px', color: '#888888', marginBottom: '12px' }}>
-                                    {article.date_str}  •  {article.read_time}
-                                </div>
+                                {/* Date and Read Time Hidden Per Request */}
                                 <h3 style={{
                                     fontSize: '18px',
                                     fontWeight: 'bold',
