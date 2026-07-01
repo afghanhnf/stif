@@ -323,18 +323,18 @@ export default function ShariahLibraryShow({ locale, akad, prev, next, akads, se
 
                     {/* Bottom Row Grid (Example & STIF Application) */}
                     <FadeIn direction="up">
-                        <div className="akad-row-grid">
+                        <div className={`akad-row-grid ${!example ? 'single-column' : ''}`}>
                             
                             {/* Example Card */}
-                            <div className="akad-detail-card">
-                                <span className="label-gold">{locale === 'id' ? 'Contoh' : 'Example'}</span>
-                                <h3 className="akad-section-title" style={{ fontSize: '28px' }}>
-                                    {currentExampleTitle}
-                                </h3>
-                                {example && (
+                            {example && (
+                                <div className="akad-detail-card">
+                                    <span className="label-gold">{locale === 'id' ? 'Contoh' : 'Example'}</span>
+                                    <h3 className="akad-section-title" style={{ fontSize: '28px' }}>
+                                        {currentExampleTitle}
+                                    </h3>
                                     <div className="akad-section-text rich-content" dangerouslySetInnerHTML={{ __html: example }} />
-                                )}
-                            </div>
+                                </div>
+                            )}
 
                             {/* STIF Application Card */}
                             <div className="akad-detail-card">
@@ -579,6 +579,10 @@ export default function ShariahLibraryShow({ locale, akad, prev, next, akads, se
                     grid-template-columns: 1fr 1fr;
                     gap: 24px;
                     margin-bottom: 64px;
+                }
+                
+                .akad-row-grid.single-column {
+                    grid-template-columns: 1fr;
                 }
                 
                 .akad-detail-card {
